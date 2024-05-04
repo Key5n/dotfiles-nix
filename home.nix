@@ -75,6 +75,10 @@
     userEmail = "k.nogami.472@stn.nitech.ac.jp";
   };
 
+  programs.alacritty = {
+    enable = true;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
