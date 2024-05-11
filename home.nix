@@ -83,6 +83,7 @@
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
+    autocd = true;
 
     initExtra = ''
       source ~/dotfiles/.p10k.zsh
