@@ -79,6 +79,19 @@
     enable = true;
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      update = "sudo nixos-rebuild switch --flake .#my-nixos";
+      test = "sudo nixos-rebuild test --flake .#my-nixos";
+    };
+  };
+
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
