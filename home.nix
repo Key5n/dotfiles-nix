@@ -90,6 +90,18 @@
       test = "sudo nixos-rebuild test --flake .#my-nixos";
       list-generations = "nixos-rebuild list-generations";
     };
+
+    plugins = [
+      {
+        name = "zsh-autocomplete";
+        src = pkgs.fetchFromGitHub {
+          owner = "marlonrichert";
+          repo = "zsh-autocomplete";
+          rev = "23.07.13";
+          sha256 = "0NW0TI//qFpUA2Hdx6NaYdQIIUpRSd0Y4NhwBbdssCs=";
+        };
+      }
+    ];
   };
 
 
