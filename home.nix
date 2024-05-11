@@ -88,6 +88,7 @@
       la = "ls -la";
       update = "sudo nixos-rebuild switch --flake .#my-nixos";
       test = "sudo nixos-rebuild test --flake .#my-nixos";
+      list-generations = "nixos-rebuild list-generations";
     };
   };
 
