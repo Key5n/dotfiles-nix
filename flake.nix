@@ -3,11 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-23.11";
+    xremap-flake.url = "github:xremap/nix-flake";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       # Personal laptop
       my-nixos = nixpkgs.lib.nixosSystem {
@@ -21,6 +22,9 @@
             home-manager.users.key5n = import ./home.nix;
           }
         ];
+        specialArgs = {
+          inherit (inputs) xremap-flake;
+        };
       };
     };
 
