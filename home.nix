@@ -85,6 +85,7 @@
 
     shellAliases = {
       ll = "ls -l";
+      la = "ls -la";
       update = "sudo nixos-rebuild switch --flake .#my-nixos";
       test = "sudo nixos-rebuild test --flake .#my-nixos";
     };
