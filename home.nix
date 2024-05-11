@@ -83,7 +83,10 @@
     enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    initExtra = ''
+      source ~/dotfiles/.p10k.zsh
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+    '';
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
@@ -102,6 +105,11 @@
           sha256 = "0NW0TI//qFpUA2Hdx6NaYdQIIUpRSd0Y4NhwBbdssCs=";
         };
       }
+      # {
+      #   name = "powerlevel10k";
+      #   src = pkgs.zsh-powerlevel10k;
+      #   file = "share/zsh-/powerlevel10k.zsh-theme";
+      # }
     ];
   };
 
