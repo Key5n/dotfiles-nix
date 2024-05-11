@@ -83,6 +83,7 @@
     enable = true;
     syntaxHighlighting.enable = true;
 
+    initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
