@@ -38,6 +38,7 @@
     pkgs.google-chrome
     pkgs.noto-fonts-cjk-sans
     pkgs.fira-code-nerdfont
+    pkgs.discord
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
