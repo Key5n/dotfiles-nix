@@ -15,6 +15,10 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  imports = [
+    ../modules/powerlevel10k
+  ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -92,6 +96,9 @@
 
   programs.alacritty = {
     enable = true;
+    settings = {
+      opacity = 0.5;
+    };
   };
 
   programs.zsh = {
@@ -100,7 +107,7 @@
     autocd = true;
 
     initExtra = ''
-      source ~/dotfiles/.p10k.zsh
+      source ~/.p10k.zsh
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
     '';
     shellAliases = {
