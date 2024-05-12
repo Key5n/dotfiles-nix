@@ -128,11 +128,6 @@
           sha256 = "0NW0TI//qFpUA2Hdx6NaYdQIIUpRSd0Y4NhwBbdssCs=";
         };
       }
-      # {
-      #   name = "powerlevel10k";
-      #   src = pkgs.zsh-powerlevel10k;
-      #   file = "share/zsh-/powerlevel10k.zsh-theme";
-      # }
     ];
   };
 

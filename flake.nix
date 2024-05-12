@@ -10,7 +10,6 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      # Personal laptop
       my-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -27,15 +26,5 @@
         };
       };
     };
-
-    # homeConfigurations = {
-    #   key5n = nixpkgs.lib.homeManagerConfiguration {
-    #     modules = [ ./home.nix ];
-    #     pkgs = import nixpkgs { 
-    #       system = "x86_64-linux";
-    #     };
-    #     # extraSpecialArgs = { inherit inputs outputs; };
-    #   };
-    # };
   };
 }
