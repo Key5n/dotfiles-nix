@@ -16,6 +16,9 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   imports = [
+    ../modules/git
+    ../modules/alacritty
+    ../modules/zsh
     ../modules/powerlevel10k
   ];
 
@@ -77,59 +80,7 @@
     # EDITOR = "emacs";
   };
 
-  programs.git = {
-    enable = true;
-    userName  = "Key5n";
-    userEmail = "k.nogami.472@stn.nitech.ac.jp";
-    extraConfig = {
-      push = {
-        autoSetupRemote = true;
-      };
-      init = {
-        defaultBranch = "main";
-      };
-      core = {
-        editor = "vim";
-      };
-    };
-  };
 
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      opacity = 0.5;
-    };
-  };
-
-  programs.zsh = {
-    enable = true;
-    syntaxHighlighting.enable = true;
-    autocd = true;
-
-    initExtra = ''
-      source ~/.p10k.zsh
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-    '';
-    shellAliases = {
-      ll = "ls -l";
-      la = "ls -la";
-      update = "sudo nixos-rebuild switch --flake .";
-      test = "sudo nixos-rebuild test --flake .";
-      list-generations = "nixos-rebuild list-generations";
-    };
-
-    plugins = [
-      {
-        name = "zsh-autocomplete";
-        src = pkgs.fetchFromGitHub {
-          owner = "marlonrichert";
-          repo = "zsh-autocomplete";
-          rev = "23.07.13";
-          sha256 = "0NW0TI//qFpUA2Hdx6NaYdQIIUpRSd0Y4NhwBbdssCs=";
-        };
-      }
-    ];
-  };
 
 
   # Let Home Manager install and manage itself.
