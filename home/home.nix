@@ -113,8 +113,8 @@
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
-      update = "sudo nixos-rebuild switch --flake .#my-nixos";
-      test = "sudo nixos-rebuild test --flake .#my-nixos";
+      update = "sudo nixos-rebuild switch --flake .";
+      test = "sudo nixos-rebuild test --flake .";
       list-generations = "nixos-rebuild list-generations";
     };
 

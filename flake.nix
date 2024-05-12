@@ -10,7 +10,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      my-nixos = nixpkgs.lib.nixosSystem {
+      nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/nixos-desktop
