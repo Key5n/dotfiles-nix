@@ -8,11 +8,6 @@
     syntaxHighlighting.enable = true;
     autocd = true;
 
-    initExtra = ''
-      source ~/.p10k.zsh
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-    '';
-
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
