@@ -6,7 +6,11 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      opacity = 0.5;
+      window.opacity = 0.5;
+      font = {
+        normal.family = "FiraCode Nerd Font";
+      };
     };
   };
+
 }
