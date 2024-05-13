@@ -3,6 +3,7 @@
   lib,
   ...
 }: {
+
   programs.git = {
     enable = true;
     userName  = "Key5n";
@@ -18,5 +19,13 @@
         editor = "vim";
       };
     };
+  };
+
+  home.file."alias.zsh".source = ./alias.zsh;
+
+  programs.zsh = {
+    initExtra = ''
+      source ~/alias.zsh
+    '';
   };
 }
