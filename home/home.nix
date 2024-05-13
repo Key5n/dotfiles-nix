@@ -77,7 +77,7 @@
   #  /etc/profiles/per-user/key5n/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
 
 
