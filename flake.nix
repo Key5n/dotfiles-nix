@@ -9,9 +9,15 @@
     };
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }@inputs: {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,6 +35,27 @@
           inherit (inputs) xremap-flake;
         };
       };
+    };
+
+    darwinConfigurations = let 
+      userName = "key5n";
+      hostName = "Key5n-MacBook-Pro";
+      in {
+      ${hostName} = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./hosts/darwin-macbook/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = inputs // { inherit userName hostName; };
+            home-manager.users."${userName}" = import ./home/darwin/home.nix;
+          }
+        ];
+        specialArgs = inputs // { inherit userName hostName; };
+      };
+      
     };
   };
 }
