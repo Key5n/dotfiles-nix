@@ -5,6 +5,14 @@
   homebrew = {
     enable = true;
 
+    masApps = {
+      # "Microsoft Word" = 1450038993;
+      # "Microsoft PowerPoint" = 462062816;
+      # "Microsoft Outlook" = 985367838;
+      # "OneDrive" = 823766827;
+      LINE = 539883307;
+    };
+
     onActivation = {
       autoUpdate = false;
       # 'zap': uninstalls all formulae(and related files) not listed here.
@@ -23,6 +31,7 @@
       "visual-studio-code"
       "discord"
       "raycast"
+      "slack"
     ];
   };
 }
