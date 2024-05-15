@@ -10,6 +10,7 @@
   imports = [
     ./host-users.nix
     ./apps.nix
+    ./system.nix
   ];
 
   # Auto upgrade nix package and the daemon service.
