@@ -6,10 +6,7 @@
     enable = true;
 
     masApps = {
-      # "Microsoft Word" = 1450038993;
-      # "Microsoft PowerPoint" = 462062816;
-      # "Microsoft Outlook" = 985367838;
-      # "OneDrive" = 823766827;
+      # Office apps should be installed manually
       LINE = 539883307;
     };
 
