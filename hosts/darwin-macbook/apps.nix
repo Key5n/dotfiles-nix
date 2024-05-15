@@ -29,6 +29,7 @@
       "discord"
       "raycast"
       "slack"
+      "figma"
     ];
   };
 }
