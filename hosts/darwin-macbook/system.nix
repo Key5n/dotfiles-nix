@@ -11,12 +11,20 @@
     defaults = {
       dock = {
         autohide = true;
+        show-recents = false;  # disable recent apps
+
+        persistent-apps = [
+          "/System/Applications/Launchpad.app"
+          "/Applications/Firefox.app"
+          "/Applications/Visual Studio Code.app"
+          "/Applications/Discord.app"
+          "/nix/store/ir312b2bm44rj5zz98hhkhi6b6aiqwp9-alacritty-0.12.3/Applications/Alacritty.app"
+        ];
       };
 
       finder = {
         _FXShowPosixPathInTitle = true;  # show full path in finder title
         AppleShowAllExtensions = true;  # show all file extensions
-        ShowPathbar = true;  # show path bar
         ShowStatusBar = true;  # show status bar
       };
 
