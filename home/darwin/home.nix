@@ -79,6 +79,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.zsh = {
+    initExtra = ''
+      export PATH="/opt/homebrew/bin:$PATH"
+    '';
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
