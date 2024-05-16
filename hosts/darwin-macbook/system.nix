@@ -34,6 +34,10 @@
       };
 
       CustomUserPreferences = {
+        NSGlobalDomain = {
+          # Add a context menu item for showing the Web Inspector in web views
+          WebKitDeveloperExtras = true;
+        };
         "com.microsoft.VSCode" = {
           ApplePressAndHoldEnabled = false;
         };
