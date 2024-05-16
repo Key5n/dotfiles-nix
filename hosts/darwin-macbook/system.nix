@@ -26,6 +26,7 @@
         _FXShowPosixPathInTitle = true;  # show full path in finder title
         AppleShowAllExtensions = true;  # show all file extensions
         ShowStatusBar = true;  # show status bar
+        ShowPathbar = true; # Show path breadcrumbs in finder windows
       };
 
       trackpad = {
