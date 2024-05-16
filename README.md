@@ -6,11 +6,21 @@ nix build .#darwinConfigurations."Key5n-MacBook-Pro".system --extra-experimental
 ./result/sw/bin/darwin-rebuild switch --flake .#Key5n-MacBook-Pro
 ```
 
+注意
+username を key5n にしないとエラーが発生
+
 ## 手動でやる必要がある設定
 
 - 日本語のライブ変換の無効化
   1. 右上のキーボードを日本語に切り替えてクリック
   2. "Live Conversion" を無効化
+- capslock key を command key に変更
+  - Settings > Keyboard > Keyboard Shortcut > Modifier Key
+- 入力ソースの切り替え方法を Command + Space に変更
+  - Spotlight を無効化
+    - デフォルトショートカットが Cmd + Space のためブッキング
+    - Settings > Keyboard > Modifier Key
+  - Settings > Keyboard > Keyboard Shortcut > Input Source
 - Raycast のショートカットの設定
   1. Raycast を手動で起動
     - ログイン時に起動されるようにする
@@ -22,15 +32,13 @@ nix build .#darwinConfigurations."Key5n-MacBook-Pro".system --extra-experimental
   - 大学のアカウントでログイン
   - インストール
 - 壁紙の設定
-- Spotlight を無効化
-  - デフォルトは Cmd + Space
 - （もしかしたら）App Store からアプリケーションの手動インストール
 
 ## インストール方法
 
 1. Macbook に Nix をインストール
   - おすすめ：https://github.com/DeterminateSystems/nix-installer
-    - なぜか 1 回目はエラーが起こる
+    - なぜか 1 回目はエラーが発生
 2. Homebrew を**手動で**インストール
   - https://brew.sh/
 3. この dotfiles をもとにビルド
