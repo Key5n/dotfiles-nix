@@ -45,10 +45,11 @@
       };
     };
 
-    keyboard = {
-      enableKeyMapping = true;
-      remapCapsLockToControl = true;  # remap caps lock to control
-    };
+    # disable since I cannot remap capslock key to command key
+    # keyboard = {
+    #   enableKeyMapping = true;
+    #   remapCapsLockToControl = true;  # remap caps lock to control
+    # };
   };
 
   programs.zsh.enable = true;
