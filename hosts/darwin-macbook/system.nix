@@ -32,6 +32,12 @@
         Clicking = true;  # enable tap to click
         TrackpadRightClick = true;  # enable two finger right click
       };
+
+      CustomUserPreferences = {
+        "com.microsoft.VSCode" = {
+          ApplePressAndHoldEnabled = false;
+        };
+      };
     };
 
     keyboard = {
