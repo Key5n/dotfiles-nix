@@ -1,3 +1,5 @@
+set shell := ["zsh", "-uc"]
+
 hostname := "Key5n-MacBook-Pro"
 
 darwin:
@@ -6,4 +8,3 @@ darwin:
 
 update:
   nix flake update
-
