@@ -16,10 +16,10 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   imports = [
-    ../../modules/git
-    ../../modules/alacritty
-    ../../modules/zsh
-    ../../modules/powerlevel10k
+    ../base/git
+    ../base/alacritty
+    ../base/zsh
+    ../base/powerlevel10k
   ];
 
   # The home.packages option allows you to install Nix packages into your

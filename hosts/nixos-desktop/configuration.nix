@@ -8,9 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/xremap/xremap-flake.nix
-      ../../modules/xremap/xremap.nix
-      ../../modules/i3
+      ../../modules/nixos/xremap/xremap-flake.nix
+      ../../modules/nixos/xremap/xremap.nix
+      ../../home/linux/i3
     ];
 
   # Bootloader.

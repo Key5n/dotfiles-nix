@@ -8,9 +8,9 @@
   ];
 
   imports = [
-    ./host-users.nix
-    ./apps.nix
-    ./system.nix
+    ../../modules/darwin/host-users.nix
+    ../../modules/darwin/apps.nix
+    ../../modules/darwin/system.nix
   ];
 
   # Auto upgrade nix package and the daemon service.

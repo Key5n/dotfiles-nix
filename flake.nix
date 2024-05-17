@@ -28,7 +28,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = inputs;
-            home-manager.users.key5n = import ./home/home.nix;
+            home-manager.users.key5n = import ./home/linux/home.nix;
           }
         ];
         specialArgs = {
@@ -37,7 +37,7 @@
       };
     };
 
-    darwinConfigurations = let 
+    darwinConfigurations = let
       userName = "key5n";
       hostName = "Key5n-MacBook-Pro";
       in {
@@ -55,7 +55,7 @@
         ];
         specialArgs = inputs // { inherit userName hostName; };
       };
-      
+
     };
   };
 }
