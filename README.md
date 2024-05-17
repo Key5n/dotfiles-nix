@@ -33,6 +33,8 @@ username を key5n にしないとエラーが発生
   - Office のウェブサイトを開く
   - 大学のアカウントでログイン
   - インストール
+- Docker のインストール
+  - https://docs.docker.com/desktop/install/mac-install/
 - 壁紙の設定
 - （もしかしたら）App Store からアプリケーションの手動インストール
 
