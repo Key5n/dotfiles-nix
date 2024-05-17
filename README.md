@@ -21,6 +21,8 @@ username を key5n にしないとエラーが発生
     - デフォルトショートカットが Cmd + Space のためブッキング
     - Settings > Keyboard > Modifier Key
   - Settings > Keyboard > Keyboard Shortcut > Input Source
+- GitHub の SSH 設定
+  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 - Raycast のショートカットの設定
   1. Raycast を手動で起動
     - ログイン時に起動されるようにする
