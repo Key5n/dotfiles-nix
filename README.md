@@ -36,6 +36,8 @@ username を key5n にしないとエラーが発生
 - Docker のインストール
   - https://docs.docker.com/desktop/install/mac-install/
 - 壁紙の設定
+- デスクトップをクリックでデスクトップの表示を無効化
+  - Settings > Desktop and Dock > Desktop and Stage Manager
 - （もしかしたら）App Store からアプリケーションの手動インストール
 
 ## インストール方法
