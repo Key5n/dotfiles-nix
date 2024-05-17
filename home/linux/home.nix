@@ -16,6 +16,7 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   imports = [
+    ../base
     ../base/git
     ../base/alacritty
     ../base/zsh
