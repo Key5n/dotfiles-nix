@@ -21,6 +21,7 @@
     ../base/alacritty
     ../base/zsh
     ../base/powerlevel10k
+    ../base/neovim
   ];
 
   # The home.packages option allows you to install Nix packages into your
