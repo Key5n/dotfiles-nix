@@ -19,11 +19,9 @@
     i3lock
     xautolock
     i3status
-    i3-gaps
     feh
     acpi
     arandr
-    dex
     xbindkeys
     xorg.xbacklight
     xorg.xdpyinfo
