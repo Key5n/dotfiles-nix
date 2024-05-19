@@ -23,6 +23,7 @@
     ../base/powerlevel10k
     ./i3
     ./greenclip
+    ./picom
   ];
 
   # The home.packages option allows you to install Nix packages into your
