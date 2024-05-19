@@ -15,10 +15,8 @@
   home.packages = with pkgs; [
     rofi
     dunst
-    i3blocks
     i3lock
     xautolock
-    i3status
     feh
     acpi
     arandr
