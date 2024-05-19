@@ -196,3 +196,4 @@ bar {
 
 exec --no-startup-id fcitx5 -d
 exec_always --no-startup-id bash $HOME/.config/polybar/scripts/launch.sh
+exec_always --no-startup-id feh --no-fehbg --bg-tile '/home/key5n/mythra1.jpg'
