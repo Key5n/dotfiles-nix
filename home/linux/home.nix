@@ -24,6 +24,7 @@
     ./i3
     ./greenclip
     ./picom
+    ./polybar
   ];
 
   # The home.packages option allows you to install Nix packages into your
