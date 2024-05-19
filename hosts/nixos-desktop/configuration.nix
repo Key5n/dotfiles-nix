@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       ../../modules/nixos/xremap/xremap-flake.nix
       ../../modules/nixos/xremap/xremap.nix
-      ../../home/linux/i3
     ];
 
   # Bootloader.
@@ -58,6 +57,25 @@
   };
 
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
+
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+
+    desktopManager = {
+      xterm.enable = false;
+    };
+
+    displayManager = {
+      defaultSession = "none+i3";
+      lightdm.enable = false;
+      gdm.enable = true;
+    };
+
+    # Configure keymap in X11
+    layout = "us";
+    xkbVariant = "";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

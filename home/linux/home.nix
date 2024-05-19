@@ -21,6 +21,7 @@
     ../base/alacritty
     ../base/zsh
     ../base/powerlevel10k
+    ./i3
     ./greenclip
   ];
 
