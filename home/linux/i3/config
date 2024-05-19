@@ -195,3 +195,4 @@ bar {
 }
 
 exec --no-startup-id fcitx5 -d
+exec_always --no-startup-id bash $HOME/.config/polybar/scripts/launch.sh
