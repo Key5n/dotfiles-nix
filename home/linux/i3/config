@@ -193,3 +193,5 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec --no-startup-id fcitx5 -d
