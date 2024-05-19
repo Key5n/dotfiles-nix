@@ -11,9 +11,6 @@
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
-      update = "sudo nixos-rebuild switch --flake .";
-      test = "sudo nixos-rebuild test --flake .";
-      list-generations = "nixos-rebuild list-generations";
       c = "code -r";
     };
 
