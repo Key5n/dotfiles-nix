@@ -4,6 +4,8 @@
 }: {
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
 
+  xdg.configFile."i3/config".source = ./config;
+
   services.xserver = {
     enable = true;
 
