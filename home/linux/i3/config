@@ -201,3 +201,5 @@ exec_always --no-startup-id feh --no-fehbg --bg-tile '/home/key5n/mythra1.jpg'
 
 default_border pixel 1
 default_floating_border normal
+
+exec --no-startup-id bash ~/.screenlayout/monitor.sh
