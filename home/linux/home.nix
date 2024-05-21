@@ -54,6 +54,7 @@
     pkgs.discord
     pkgs.slack
     pkgs.fastfetch
+    pkgs.psmisc
   ];
 
   home.file = {
