@@ -10,5 +10,7 @@
     ./zsh
     ./powerlevel10k
     ./node
+    ./neovim
+    ./haskell
   ];
 }
