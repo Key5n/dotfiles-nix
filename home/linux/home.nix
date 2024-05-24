@@ -22,6 +22,7 @@
     ./picom
     ./polybar
     ./rofi
+    ./pcmanfm
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -52,7 +53,6 @@
     pkgs.fastfetch
     pkgs.psmisc
     pkgs.unzip
-    pkgs.pcmanfm
   ];
 
   home.file = {
