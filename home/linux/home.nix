@@ -51,6 +51,7 @@
     pkgs.slack
     pkgs.fastfetch
     pkgs.psmisc
+    pkgs.unzip
   ];
 
   home.file = {
