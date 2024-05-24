@@ -52,6 +52,7 @@
     pkgs.fastfetch
     pkgs.psmisc
     pkgs.unzip
+    pkgs.pcmanfm
   ];
 
   home.file = {
