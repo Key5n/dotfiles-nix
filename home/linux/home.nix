@@ -21,6 +21,7 @@
     ../base/alacritty
     ../base/zsh
     ../base/powerlevel10k
+    ../base/node
     ./i3
     ./greenclip
     ./picom
