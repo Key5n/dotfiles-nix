@@ -21,7 +21,6 @@
     ../base/alacritty
     ../base/zsh
     ../base/powerlevel10k
-    ../base/volta
     ./i3
     ./greenclip
     ./picom
@@ -76,6 +75,8 @@
   home.sessionVariables = {
     EDITOR = "vim";
   };
+
+
 
 
   # Let Home Manager install and manage itself.
