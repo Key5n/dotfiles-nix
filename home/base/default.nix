@@ -4,4 +4,11 @@
     just
   ];
 
+  imports = [
+    ./git
+    ./alacritty
+    ./zsh
+    ./powerlevel10k
+    ./node
+  ];
 }
