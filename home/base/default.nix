@@ -12,5 +12,6 @@
     ./node
     ./neovim
     ./haskell
+    ./poetry
   ];
 }
