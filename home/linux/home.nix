@@ -17,12 +17,6 @@
 
   imports = [
     ../base
-    ./i3
-    ./greenclip
-    ./picom
-    ./polybar
-    ./rofi
-    ./pcmanfm
   ];
 
   # The home.packages option allows you to install Nix packages into your

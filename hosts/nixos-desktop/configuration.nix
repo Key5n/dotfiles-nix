@@ -56,24 +56,23 @@
       ];
   };
 
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
 
   services.xserver = {
     enable = true;
-    windowManager.i3.enable = true;
 
     desktopManager = {
-      xterm.enable = false;
+      gnome.enable = true;
     };
 
     displayManager = {
-      gdm.enable = true;
+      gdm = {
+        enable = true;
+        wayland = false;
+      };
     };
   };
 
   services.displayManager = {
-    defaultSession = "none+i3";
-
     # Enable automatic login for the user.
     autoLogin.enable = true;
     autoLogin.user = "key5n";
