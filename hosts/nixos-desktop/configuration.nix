@@ -67,14 +67,16 @@
     };
 
     displayManager = {
-      defaultSession = "none+i3";
-      lightdm.enable = false;
       gdm.enable = true;
     };
+  };
 
-    # Configure keymap in X11
-    layout = "us";
-    xkbVariant = "";
+  services.displayManager = {
+    defaultSession = "none+i3";
+
+    # Enable automatic login for the user.
+    autoLogin.enable = true;
+    autoLogin.user = "key5n";
   };
 
   # Enable CUPS to print documents.
@@ -110,9 +112,6 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "key5n";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
