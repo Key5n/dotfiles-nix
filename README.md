@@ -1,3 +1,9 @@
+# NixOS デスクトップの設定
+
+```sh
+sudo nixos-rebuild switch --flake github:Key5n/nix-dotfiles#nixos-desktop
+```
+
 # Macbook の設定
 
 ```sh
