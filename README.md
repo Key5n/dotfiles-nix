@@ -31,10 +31,10 @@ username を key5n にしないとエラーが発生
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 - Raycast のショートカットの設定
   1. Raycast を手動で起動
-    - ログイン時に起動されるようにする
+     - ログイン時に起動されるようにする
   2. 右上から Raycast のアイコンをクリック
   3. settings を開き Raycast Hotkey を設定
-    - デフォルトは Option + Space
+     - デフォルトは Option + Space
 - Office のインストール
   - Office のウェブサイトを開く
   - 大学のアカウントでログイン
@@ -49,15 +49,18 @@ username を key5n にしないとエラーが発生
 ## インストール方法
 
 1. Macbook に Nix をインストール
-  - おすすめ：https://github.com/DeterminateSystems/nix-installer
-    - なぜか 1 回目はエラーが発生
+   - おすすめ：https://github.com/DeterminateSystems/nix-installer
+     - なぜか 1 回目はエラーが発生
 2. Homebrew を**手動で**インストール
-  - https://brew.sh/
+   - https://brew.sh/
 3. この dotfiles をもとにビルド
-  - `nix build github:Key5n/nix-dotfiles#darwinConfigurations.Key5n-MacBook-Pro.system --extra-experimental-features 'nix-command flakes'`
+
+   - `nix build github:Key5n/nix-dotfiles#darwinConfigurations.Key5n-MacBook-Pro.system --extra-experimental-features 'nix-command flakes'`
+
 4. ビルドファイルの適用
-  - `./result/sw/bin/darwin-rebuild switch --flake github:Key5n/nix-dotfiles#Key5n-MacBook-Pro`
+   - `./result/sw/bin/darwin-rebuild switch --flake github:Key5n/nix-dotfiles#Key5n-MacBook-Pro`
 
 # 参考
-https://daiderd.com/nix-darwin/manual/index.html
-https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/minimal/flake.nix
+
+- https://daiderd.com/nix-darwin/manual/index.html
+- https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/minimal/flake.nix
