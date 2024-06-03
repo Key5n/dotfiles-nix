@@ -13,12 +13,8 @@
     ];
 
   # Bootloader.
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
-    useOSProber = true;
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -49,40 +45,33 @@
   };
 
   i18n.inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [
-          fcitx5-mozc
-          fcitx5-gtk
-      ];
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
   };
 
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
-  services.xserver = {
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm = {
     enable = true;
-
-    desktopManager = {
-      gnome.enable = true;
-    };
-
-    displayManager = {
-      gdm = {
-        enable = true;
-        wayland = false;
-      };
-    };
+    wayland = false;
   };
+  services.xserver.desktopManager.gnome.enable = true;
 
-  services.displayManager = {
-    # Enable automatic login for the user.
-    autoLogin.enable = true;
-    autoLogin.user = "key5n";
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -111,6 +100,9 @@
     ];
   };
 
+  # Enable automatic login for the user.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "key5n";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
@@ -126,8 +118,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    firefox
- #  wget
+  #  wget
   ];
 
   nix.settings.experimental-features = [
@@ -145,7 +136,6 @@
 
   programs.zsh.enable = true;
   users.users.key5n.shell = pkgs.zsh;
-
 
   programs.steam = {
     enable = true;
@@ -213,4 +203,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
 }
