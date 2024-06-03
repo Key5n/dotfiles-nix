@@ -1,8 +1,15 @@
 # NixOS デスクトップの設定
 
+インストール方法
+
 ```sh
 sudo nixos-rebuild switch --flake github:Key5n/nix-dotfiles#nixos-desktop
 ```
+
+## Windows とのデュアルブートの設定
+
+- Linux の ESP に Windows の boot loader をコピーする必要あり
+  - すると systemd-boot の auto detection が働く
 
 # Macbook の設定
 
