@@ -31,9 +31,7 @@
             home-manager.users.key5n = import ./home/linux/home.nix;
           }
         ];
-        specialArgs = {
-          inherit (inputs) xremap-flake;
-        };
+        specialArgs = inputs;
       };
     };
 

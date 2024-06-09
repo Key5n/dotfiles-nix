@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/nixos/xremap/xremap-flake.nix
       ../../modules/nixos/xremap/xremap.nix
     ];
 
