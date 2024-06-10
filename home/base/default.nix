@@ -13,5 +13,6 @@
     ./neovim
     ./haskell
     ./poetry
+    ./latex
   ];
 }
