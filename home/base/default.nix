@@ -14,5 +14,6 @@
     ./haskell
     ./poetry
     ./latex
+    ./c
   ];
 }
