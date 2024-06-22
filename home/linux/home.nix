@@ -47,6 +47,7 @@
     pkgs.fastfetch
     pkgs.psmisc
     pkgs.unzip
+    pkgs.xsel
   ];
 
   home.file = {
