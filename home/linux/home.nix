@@ -39,7 +39,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.vscode
-    pkgs.google-chrome
     pkgs.noto-fonts-cjk-sans
     pkgs.fira-code-nerdfont
     pkgs.discord
@@ -53,6 +52,8 @@
   home.file = {
     ".screenlayout/monitor.sh".source = ./triple-monitor.sh;
   };
+
+  programs.chromium.enable = true;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
