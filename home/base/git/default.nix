@@ -3,12 +3,16 @@
   lib,
   config,
   ...
-}: 
+}:
 with lib;
 let zsh_cfg = config.programs.zsh;
 in {
 
   config = {
+
+    home.packages = with pkgs; [
+      lazygit
+    ];
 
     programs.git = {
       enable = true;
