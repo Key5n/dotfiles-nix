@@ -71,7 +71,7 @@
   #  /etc/profiles/per-user/key5n/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "vim";
+    # EDITOR = "vim";
   };
 
   nixpkgs.config.allowUnfree = true;

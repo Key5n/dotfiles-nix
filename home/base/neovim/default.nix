@@ -1,6 +1,11 @@
 { pkgs, lib, config,... }: {
   programs.neovim = {
     enable = true;
+
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+
     extraPackages = with pkgs; [
       #-- python
       nodePackages.pyright
