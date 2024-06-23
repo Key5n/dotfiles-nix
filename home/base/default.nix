@@ -15,5 +15,6 @@
     ./poetry
     ./latex
     ./c
+    ./tmux
   ];
 }
