@@ -11,7 +11,7 @@
   home.packages = with pkgs; [
     #-- python
     nodePackages.pyright
-    python311Packages.flake8
+    python312Packages.flake8
 
     #-- nix
     nil
