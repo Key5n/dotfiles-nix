@@ -62,6 +62,13 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      pyright = {
+        settings = {
+          python = {
+            pythonPath = vim.trim(vim.fn.system "poetry run which python3"),
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
