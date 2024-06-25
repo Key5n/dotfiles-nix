@@ -3,7 +3,10 @@
   ...
 }: {
   home.packages = [
-    pkgs.poetry
     pkgs.python312
   ];
+
+  programs.poetry = {
+    enable = true;
+  };
 }
