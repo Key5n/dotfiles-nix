@@ -17,5 +17,6 @@
     ./c
     ./tmux
     ./starship
+    ./zellij
   ];
 }
