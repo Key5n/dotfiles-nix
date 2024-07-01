@@ -1,3 +1,3 @@
 {
-  theme = import ./tokyo-night.nix;
+  theme = import ./iceberg.nix;
 }
