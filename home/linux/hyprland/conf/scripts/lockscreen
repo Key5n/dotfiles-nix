@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Locks the screen immediately
+swaylock -i ~/.config/wallpaper/xenoblade3.jpg
+
