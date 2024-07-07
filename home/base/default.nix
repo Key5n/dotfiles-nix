@@ -19,4 +19,8 @@
     ./starship
     ./zellij
   ];
+
+  home.shellAliases = {
+    e = "exit";
+  };
 }
