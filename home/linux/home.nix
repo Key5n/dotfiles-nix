@@ -17,7 +17,17 @@
 
   imports = [
     ../base
+    ./base
+    ./hyprland
   ];
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -48,10 +58,6 @@
     pkgs.unzip
     pkgs.xsel
   ];
-
-  home.file = {
-    ".screenlayout/monitor.sh".source = ./triple-monitor.sh;
-  };
 
   programs.chromium.enable = true;
 

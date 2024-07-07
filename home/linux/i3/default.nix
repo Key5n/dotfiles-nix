@@ -12,6 +12,18 @@
     extraConfig = builtins.readFile ./config;
   };
 
+  home.file = {
+    ".screenlayout/monitor.sh".source = ./triple-monitor.sh;
+  };
+
+  imports = [
+    ./rofi
+    ./picom
+    ./polybar
+    ./greenclip
+    ./pcmanfm
+  ];
+
   home.packages = with pkgs; [
     rofi
     dunst
