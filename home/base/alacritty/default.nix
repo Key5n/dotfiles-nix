@@ -5,6 +5,7 @@ in {
     enable = true;
     settings = {
       window.opacity = 0.9;
+      window.option_as_alt = "Both";
       font = {
         normal.family = "FiraCode Nerd Font";
       };
