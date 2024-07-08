@@ -18,6 +18,7 @@
     ./tmux
     ./starship
     ./zellij
+    ./julia
   ];
 
   home.shellAliases = {
