@@ -8,7 +8,7 @@
     ./git
     ./alacritty
     ./zsh
-    # ./powerlevel10k
+    ./powerlevel10k
     ./node
     ./neovim
     ./haskell
@@ -16,7 +16,7 @@
     ./latex
     ./c
     ./tmux
-    ./starship
+    # ./starship
     ./zellij
     ./julia
   ];
