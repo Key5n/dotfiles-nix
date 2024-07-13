@@ -59,7 +59,7 @@ in {
       recursive = true;
       executable = true;
     };
-    "hypr/waybar" = {
+    "waybar" = {
       source = ./conf/waybar;
       recursive = true;
     };

@@ -2,9 +2,6 @@
 
 ## launch waybar with alt config
 
-# CONFIG="$HOME/.config/hypr/waybar/config"
-# STYLE="$HOME/.config/hypr/waybar/style.css"
-
 if [[ ! $(pidof waybar) ]]; then
-	waybar --bar main-bar --log-level error
+	waybar --log-level error
 fi
