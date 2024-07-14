@@ -67,7 +67,7 @@ return {
       pyright = {
         settings = {
           python = {
-            pythonPath = vim.trim(vim.fn.system "poetry run which python3"),
+            pythonPath = vim.trim(vim.fn.system "which python"),
           },
         },
       },
