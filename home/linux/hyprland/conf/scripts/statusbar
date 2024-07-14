@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## launch waybar with alt config
+
+if [[ ! $(pidof waybar) ]]; then
+	waybar --log-level error
+fi

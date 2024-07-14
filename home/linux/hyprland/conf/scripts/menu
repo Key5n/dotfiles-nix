@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+## launch wofi with alt config
+
+if [[ ! $(pidof wofi) ]]; then
+	wofi --show drun --prompt "Search..."
+else
+	pkill wofi
+fi
