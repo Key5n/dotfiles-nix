@@ -3,7 +3,7 @@
 インストール方法
 
 ```sh
-sudo nixos-rebuild switch --flake github:Key5n/nix-dotfiles#nixos-desktop
+sudo nixos-rebuild switch --flake github:Key5n/dotfiles-nix#nixos-desktop
 ```
 
 ## Windows とのデュアルブートの設定
@@ -14,7 +14,7 @@ sudo nixos-rebuild switch --flake github:Key5n/nix-dotfiles#nixos-desktop
 # Macbook の設定
 
 ```sh
-cd ~/nix-dotfiles
+cd ~/dotfiles-nix
 nix build .#darwinConfigurations."Key5n-MacBook-Pro".system --extra-experimental-features 'nix-command flakes'
 ./result/sw/bin/darwin-rebuild switch --flake .#Key5n-MacBook-Pro
 ```
@@ -62,10 +62,10 @@ username を key5n にしないとエラーが発生
    - https://brew.sh/
 3. この dotfiles をもとにビルド
 
-   - `nix build github:Key5n/nix-dotfiles#darwinConfigurations.Key5n-MacBook-Pro.system --extra-experimental-features 'nix-command flakes'`
+   - `nix build github:Key5n/dotfiles-nix#darwinConfigurations.Key5n-MacBook-Pro.system --extra-experimental-features 'nix-command flakes'`
 
 4. ビルドファイルの適用
-   - `./result/sw/bin/darwin-rebuild switch --flake github:Key5n/nix-dotfiles#Key5n-MacBook-Pro`
+   - `./result/sw/bin/darwin-rebuild switch --flake github:Key5n/dotfiles-nix#Key5n-MacBook-Pro`
 
 # 参考
 

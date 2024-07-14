@@ -7,10 +7,10 @@ darwin:
   ./result/sw/bin/darwin-rebuild switch --flake .#{{hostname}}
 
 nixos:
-  sudo nixos-rebuild switch --flake ~/nix-dotfiles#nixos-desktop
+  sudo nixos-rebuild switch --flake ~/dotfiles-nix#nixos-desktop
 
 test:
-  sudo nixos-rebuild test --flake ~/nix-dotfiles#nixos-desktop
+  sudo nixos-rebuild test --flake ~/dotfiles-nix#nixos-desktop
 
 list-generations:
   nixos-rebuild list-generations
