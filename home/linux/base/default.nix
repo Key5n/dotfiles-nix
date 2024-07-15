@@ -8,6 +8,7 @@
 
     imv # simple image viewer
     jq
+    gnumake
   ];
 
   # auto mount usb drives
