@@ -12,7 +12,7 @@
     ./node
     ./neovim
     ./haskell
-    ./poetry
+    ./python
     ./latex
     ./c
     ./tmux
