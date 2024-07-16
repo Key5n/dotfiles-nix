@@ -6,4 +6,8 @@
     # settings.KbdInteractiveAuthentication = false;
     #settings.PermitRootLogin = "yes";
   };
+
+  services.tailscale = {
+    enable = true;
+  };
 }
