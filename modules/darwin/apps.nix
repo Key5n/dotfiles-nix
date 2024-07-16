@@ -30,6 +30,7 @@
       "raycast"
       "slack"
       "figma"
+      "microsoft-edge"
     ];
   };
 }
