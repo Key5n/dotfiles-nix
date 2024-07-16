@@ -8,6 +8,7 @@
   ];
 
   imports = [
+    ../../modules/base/tailscale.nix
     ../../modules/darwin/host-users.nix
     ../../modules/darwin/apps.nix
     ../../modules/darwin/system.nix
