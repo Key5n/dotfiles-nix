@@ -18,6 +18,7 @@ in  {
 
       plugins = with anyrun.packages.${pkgs.system}; [
         applications
+        stdin # for clipboard manager
         # randr
         # rink
         # shell

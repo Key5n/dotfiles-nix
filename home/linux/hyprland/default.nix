@@ -25,6 +25,7 @@ in {
     wlogout
     # wlroots
     wl-clipboard
+    cliphist # wayland clipboard manager
     waybar
     wofi
     mako

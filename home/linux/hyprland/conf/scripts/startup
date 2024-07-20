@@ -27,5 +27,9 @@ sh ~/.config/hypr/scripts/statusbar &
 
 nm-applet &
 
+# clipboard manager
+wl-paste --type text --watch cliphist store & # Stores only text data
+wl-paste --type image --watch cliphist store & # Stores only image data
+
 # Start mpd
 # exec mpd &
