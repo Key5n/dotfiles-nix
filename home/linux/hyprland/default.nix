@@ -3,6 +3,7 @@
 in {
   imports = [
     ./nvidia.nix
+    ./conf/anyrun
   ];
 
   wayland.windowManager.hyprland = {
@@ -62,6 +63,10 @@ in {
     };
     "waybar" = {
       source = ./conf/waybar;
+      recursive = true;
+    };
+    "anyrun" = {
+      source = ./conf/anyrun;
       recursive = true;
     };
     "hypr/wlogout" = {

@@ -14,5 +14,9 @@
       blue = "#84a0c6";
       magenta = "#a093c7";
     };
+    modifier = {
+      selected = "#1e2132";
+      border = "#0f1117";
+    };
   };
 }
