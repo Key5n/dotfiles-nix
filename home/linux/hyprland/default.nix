@@ -29,6 +29,7 @@ in {
     mako
     grim
     slurp
+    swappy
     wf-recorder
     yad
     gnome.nautilus
