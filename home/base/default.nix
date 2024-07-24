@@ -19,6 +19,7 @@
     # ./starship
     ./zellij
     ./julia
+    ./kitty
   ];
 
   home.shellAliases = {
