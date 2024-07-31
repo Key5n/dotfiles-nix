@@ -20,6 +20,7 @@
     ./zellij
     ./julia
     ./kitty
+    ./r
   ];
 
   home.shellAliases = {
