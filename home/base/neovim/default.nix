@@ -32,7 +32,8 @@
     nodePackages.eslint
 
     nodePackages.yaml-language-server
-    nodePackages.prettier
+    # nodePackages.prettier
+    prettierd
     marksman
     # glow
     nodePackages.dockerfile-language-server-nodejs

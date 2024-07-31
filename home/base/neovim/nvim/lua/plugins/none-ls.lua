@@ -18,7 +18,7 @@ return {
     config.sources = {
       -- Set a formatter
       formatting.stylua,
-      formatting.prettier,
+      formatting.prettierd,
       require "none-ls.formatting.eslint",
 
       require "none-ls.diagnostics.eslint",
