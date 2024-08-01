@@ -23,21 +23,17 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
-    -- opts = {
-    --   ensure_installed = {
-    --     "stylua",
-    --     -- add more arguments for adding more null-ls sources
-    --   },
-    -- },
+    opts = function(_, opts)
+      opts.ensure_installed = nil
+      opts.automatic_installation = false
+    end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
-    -- opts = {
-      -- ensure_installed = {
-      --   "python",
-        -- add more arguments for adding more debuggers
-      -- },
-    -- },
+    opts = function(_, opts)
+      opts.ensure_installed = nil
+      opts.automatic_installation = false
+    end,
   },
 }

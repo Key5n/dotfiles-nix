@@ -64,13 +64,6 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
-      pyright = {
-        settings = {
-          python = {
-            pythonPath = vim.trim(vim.fn.system "which python"),
-          },
-        },
-      },
     },
     -- customize how language servers are attached
     handlers = {
