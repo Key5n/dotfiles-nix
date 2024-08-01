@@ -19,10 +19,6 @@ return {
       -- Set a formatter
       formatting.stylua,
       formatting.prettierd,
-      require "none-ls.formatting.eslint",
-
-      require "none-ls.diagnostics.eslint",
-      require "none-ls.code_actions.eslint",
     }
     return config -- return final config table
   end,

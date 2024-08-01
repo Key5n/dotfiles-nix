@@ -46,6 +46,7 @@ return {
       "tailwindcss", -- tailwindcss language server
       "html", -- html language server
       "cssls", -- css language server
+      "eslint", -- eslint language server
       ---- Configuration Language
       "marksman", -- markdown ls:
       "jsonls", -- json language server
