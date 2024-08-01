@@ -3,6 +3,7 @@ let pkgs-unstable = import nixpkgs-unstable {
     system = pkgs.system;
 }; in {
   home.packages = with pkgs-unstable; [
-    R
+    # decided to install R through nix-shell
+    # R
   ];
 }
