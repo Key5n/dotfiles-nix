@@ -29,7 +29,6 @@
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages."@tailwindcss/language-server"
-    nodePackages.eslint
 
     nodePackages.yaml-language-server
     # nodePackages.prettier
