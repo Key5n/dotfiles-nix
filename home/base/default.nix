@@ -21,6 +21,7 @@
     ./julia
     ./kitty
     ./r
+    ./gpg
   ];
 
   home.shellAliases = {
