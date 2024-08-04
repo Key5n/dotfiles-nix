@@ -11,7 +11,7 @@
       ./nvidia.nix
       ../../modules/nixos/xremap/xremap.nix
       ../../modules/nixos/i8n.nix
-      # ../../modules/nixos/steam.nix
+      ../../modules/nixos/steam.nix
       # ../../modules/nixos/xorg.nix
       ../../modules/nixos/wayland.nix
       ../../modules/nixos/misc.nix

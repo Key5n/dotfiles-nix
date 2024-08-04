@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./games.nix
+  ];
+
   home.packages = with pkgs; [
     libnotify
     wireguard-tools # manage wireguard vpn manually, via wg-quick
