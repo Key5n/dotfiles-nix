@@ -18,7 +18,6 @@
           "/Applications/Firefox.app"
           "/Applications/Visual Studio Code.app"
           "/Applications/Discord.app"
-          "/nix/store/ir312b2bm44rj5zz98hhkhi6b6aiqwp9-alacritty-0.12.3/Applications/Alacritty.app"
         ];
       };
 
