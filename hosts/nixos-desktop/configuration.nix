@@ -15,6 +15,7 @@
       # ../../modules/nixos/xorg.nix
       ../../modules/nixos/wayland.nix
       ../../modules/nixos/misc.nix
+      ../../modules/nixos/waydroid.nix
     ];
 
   # Bootloader.
