@@ -36,5 +36,6 @@
     xorg.xbacklight
     xorg.xdpyinfo
     sysstat
+    xsel
   ];
 }

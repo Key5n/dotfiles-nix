@@ -56,7 +56,6 @@
     pkgs.fastfetch
     pkgs.psmisc
     pkgs.unzip
-    pkgs.xsel
   ];
 
   programs.chromium.enable = true;
