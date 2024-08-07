@@ -16,6 +16,7 @@
       ../../modules/nixos/wayland.nix
       ../../modules/nixos/misc.nix
       ../../modules/nixos/waydroid.nix
+      ../../modules/nixos/docker.nix
     ];
 
   # Bootloader.
@@ -58,7 +59,7 @@
   users.users.key5n = {
     isNormalUser = true;
     description = "key5n";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];

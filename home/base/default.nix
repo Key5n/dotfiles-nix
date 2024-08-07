@@ -22,6 +22,7 @@
     ./kitty
     ./r
     ./gpg
+    ./container
   ];
 
   home.shellAliases = {
