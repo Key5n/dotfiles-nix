@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./games.nix
+    ./calibre.nix
   ];
 
   home.packages = with pkgs; [
@@ -13,6 +14,9 @@
     imv # simple image viewer
     jq
     gnumake
+    # A lossless data compressor based on the LZMA algorithm
+    # This package is used for casualsnek/waydroid_script
+    lzip
   ];
 
   # auto mount usb drives
@@ -20,5 +24,4 @@
     udiskie.enable = true;
     # syncthing.enable = true;
   };
-
 }
