@@ -17,6 +17,7 @@
       ../../modules/nixos/misc.nix
       ../../modules/nixos/waydroid.nix
       ../../modules/nixos/docker.nix
+      ../../modules/nixos/thunar.nix
     ];
 
   # Bootloader.
