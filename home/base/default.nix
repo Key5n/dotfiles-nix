@@ -23,6 +23,7 @@
     ./r
     ./gpg
     ./container
+    ./yazi
   ];
 
   home.shellAliases = {
