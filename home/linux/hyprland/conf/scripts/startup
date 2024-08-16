@@ -33,3 +33,6 @@ wl-paste --type image --watch cliphist store & # Stores only image data
 
 # Start mpd
 # exec mpd &
+
+slack &
+discord &
