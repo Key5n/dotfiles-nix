@@ -56,6 +56,7 @@
     pkgs.fastfetch
     pkgs.psmisc
     pkgs.unzip
+    pkgs.zoom-us
   ];
 
   programs.chromium.enable = true;
