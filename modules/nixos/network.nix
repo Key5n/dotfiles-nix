@@ -13,4 +13,7 @@
 
   # a bluetooth manager
   services.blueman.enable = true;
+
+  services.strongswan-swanctl.enable = true;
+  networking.networkmanager.enableStrongSwan = true;
 }
