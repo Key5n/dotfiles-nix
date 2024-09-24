@@ -41,6 +41,7 @@
     ripgrep
     gdu
     bottom
+    fd
   ];
 
   home.activation.installAstroNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
