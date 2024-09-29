@@ -12,6 +12,7 @@
     # virt-viewer # vnc connect to VM, used by kubevirt
 
     imv # simple image viewer
+    zathura # A highly customizable and functional PDF viewer
     jq
     gnumake
     # A lossless data compressor based on the LZMA algorithm
