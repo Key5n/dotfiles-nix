@@ -25,6 +25,9 @@
     stylua
     lua-language-server
 
+    #-- latex
+    texlab
+
     #-- javascript/typescript
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
