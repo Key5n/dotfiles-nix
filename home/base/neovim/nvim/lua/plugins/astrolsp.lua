@@ -30,7 +30,7 @@ return {
       disabled = { -- disable formatting capabilities for the listed language servers
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         "lua_ls",
-        "tsserver",
+        "ts_ls",
         "vtsls",
         "jsonls",
       },
@@ -42,7 +42,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       ---- Frontend & NodeJS
-      "tsserver", -- typescript/javascript language server
+      "ts_ls", -- typescript/javascript language server
       "tailwindcss", -- tailwindcss language server
       "html", -- html language server
       "cssls", -- css language server
