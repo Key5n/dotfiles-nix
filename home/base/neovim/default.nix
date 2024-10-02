@@ -37,7 +37,7 @@
     # nodePackages.prettier
     prettierd
     marksman
-    # glow
+    glow
     nodePackages.dockerfile-language-server-nodejs
     # This is only necessary if you want to use auto_install feature with Treesitter
     # tree-sitter
