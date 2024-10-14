@@ -19,6 +19,7 @@
       ../../modules/nixos/docker.nix
       ../../modules/nixos/thunar.nix
       ../../modules/nixos/network.nix
+      ../../modules/base/tailscale.nix
     ];
 
   # Bootloader.
