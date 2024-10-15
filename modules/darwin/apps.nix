@@ -31,6 +31,7 @@
       "slack"
       "figma"
       "microsoft-edge"
+      "affinity-designer"
     ];
   };
 }
