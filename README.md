@@ -11,6 +11,22 @@ sudo nixos-rebuild switch --flake github:Key5n/dotfiles-nix#nixos-desktop
 - Linux の ESP に Windows の boot loader をコピーする必要あり
   - すると systemd-boot の auto detection が働く
 
+## VPN 設定
+
+1. まず `/modules/nixos/network.nix` の大学パスワードを変更すること
+2. （証明書がない場合）証明書をダウンロードすること
+
+```
+# 接続
+sudo swanctl --initiate --child net
+
+# 切断
+sudo swanctl --terminate --child net
+
+# 接続状況確認（接続されている場合のみ表示）
+sudo swanctl --list-sas
+```
+
 # Macbook の設定
 
 ```sh
