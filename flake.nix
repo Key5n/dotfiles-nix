@@ -17,7 +17,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +44,12 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs:
+  let
+    pkgs-unstable = import inputs.nixpkgs-unstable {
+      system = "x86_64-linux";
+    };
+  in {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -54,11 +59,11 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = inputs // { inherit pkgs-unstable; };
             home-manager.users.key5n = import ./home/linux/home.nix;
           }
         ];
-        specialArgs = inputs;
+        specialArgs = inputs // { inherit pkgs-unstable; };
       };
 
       nixos-subdesktop = nixpkgs.lib.nixosSystem {

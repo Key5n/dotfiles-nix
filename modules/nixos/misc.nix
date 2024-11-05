@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, pkgs-unstable, lib, ... }: {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -16,7 +16,10 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = pkgs-unstable.firefox;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
