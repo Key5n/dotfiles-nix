@@ -26,6 +26,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelModules = [
+    "i2c-dev"
+  ];
+
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_RegistryDwords=RMUseSwI2c=0x01;RMI2cSpeed=100
+  '';
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -52,7 +60,7 @@
   users.users.key5n = {
     isNormalUser = true;
     description = "key5n";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" "i2c"];
     packages = with pkgs; [
     #  thunderbird
     ];
