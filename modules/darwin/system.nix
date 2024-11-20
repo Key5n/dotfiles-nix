@@ -41,6 +41,11 @@
         "com.microsoft.VSCode" = {
           ApplePressAndHoldEnabled = false;
         };
+        "com.aple.desktopservices" = {
+          # Avoid creating .DS_Store files on network or USB volumes
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
+        };
       };
     };
 
