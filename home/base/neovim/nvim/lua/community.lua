@@ -19,4 +19,5 @@ return {
   { import = "astrocommunity.pack.python" },
   -- there are duplicate mappings warnings in :checkhealth which-key due to the plugin
   { import = "astrocommunity.markdown-and-latex.vimtex" },
+  { import = "astrocommunity.docker.lazydocker" },
 }
