@@ -20,4 +20,5 @@ return {
   -- there are duplicate mappings warnings in :checkhealth which-key due to the plugin
   { import = "astrocommunity.markdown-and-latex.vimtex" },
   { import = "astrocommunity.docker.lazydocker" },
+  { import = "astrocommunity.programming-language-support.csv-vim" },
 }
