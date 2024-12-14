@@ -19,6 +19,7 @@ return {
       -- Set a formatter
       formatting.stylua,
       formatting.prettierd,
+      formatting.black,
     }
     return config -- return final config table
   end,

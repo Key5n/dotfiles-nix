@@ -4,6 +4,7 @@
 }: {
   home.packages = [
     pkgs.python312
+    pkgs.black
   ];
 
   programs.poetry = {
