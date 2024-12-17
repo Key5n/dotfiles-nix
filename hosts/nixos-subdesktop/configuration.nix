@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/nixos/docker.nix
     ];
 
   # Bootloader.
@@ -81,7 +82,7 @@
   users.users.key5n = {
     isNormalUser = true;
     description = "key5n";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
