@@ -1,9 +1,4 @@
 { ... }: {
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-  };
-
   services = {
     xserver =  {
       enable = false;
