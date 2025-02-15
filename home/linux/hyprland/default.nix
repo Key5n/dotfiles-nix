@@ -1,5 +1,5 @@
-{ pkgs, hyprland, ...}:  let
-  package = hyprland.packages.${pkgs.system}.hyprland;
+{ pkgs, ...}:  let
+  package = pkgs.hyprland;
 in {
   imports = [
     ./nvidia.nix

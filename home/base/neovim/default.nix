@@ -10,7 +10,7 @@
 
   home.packages = with pkgs; [
     #-- python
-    nodePackages.pyright
+    pyright
     python312Packages.flake8
 
     #-- nix

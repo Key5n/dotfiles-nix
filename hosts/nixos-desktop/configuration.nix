@@ -74,12 +74,6 @@
   #   enableSSHSupport = true;
   # };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
