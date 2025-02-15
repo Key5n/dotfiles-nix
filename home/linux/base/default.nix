@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./games.nix
     ./calibre.nix
   ];
 
