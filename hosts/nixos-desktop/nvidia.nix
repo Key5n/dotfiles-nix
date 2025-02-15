@@ -3,6 +3,12 @@
     "nvidia"
   ];
 
+  hardware.graphics = {
+    enable = true;
+    # needed by nvidia-docker
+    enable32Bit = true;
+  };
+
   hardware.nvidia = {
 
     # Modesetting is required.
