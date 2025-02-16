@@ -5,9 +5,9 @@
 # Kill already running process
 _ps=(waybar mako mpd xfce-polkit nm-applet)
 for _prs in "${_ps[@]}"; do
-	if [[ `pidof ${_prs}` ]]; then
-		killall -9 "${_prs}"
-	fi
+  if [[ $(pidof ${_prs}) ]]; then
+    killall -9 "${_prs}"
+  fi
 done
 
 # Polkit agent
@@ -30,7 +30,7 @@ sh ~/.config/hypr/scripts/statusbar &
 nm-applet &
 
 # clipboard manager
-wl-paste --type text --watch cliphist store & # Stores only text data
+wl-paste --type text --watch cliphist store &  # Stores only text data
 wl-paste --type image --watch cliphist store & # Stores only image data
 
 # Start mpd
