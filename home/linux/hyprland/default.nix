@@ -11,6 +11,9 @@ in {
     enable = true;
 
     extraConfig = builtins.readFile ./hyprland.conf;
+    plugins = [
+      pkgs.hyprlandPlugins.hyprwinwrap
+    ];
   };
 
   home.file.".wayland-session" = {
@@ -46,6 +49,7 @@ in {
     # xorg-xwayland
 
     alsa-utils
+    cava
 
     hyprpicker
     networkmanagerapplet
