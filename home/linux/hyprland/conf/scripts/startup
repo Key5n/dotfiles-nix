@@ -14,7 +14,9 @@ done
 /usr/lib/xfce-polkit/xfce-polkit &
 
 # Set wallpaper
-swaybg --output '*' --mode fill --image ~/.config/wallpaper/xenoblade3.jpg &
+# swww-daemon
+# swww img ~/.config/wallpaper/xc2_day.gif
+mpvpaper -o "no-audio --loop-playlist" "*" ~/.config/wallpaper/xc2_night.mp4 &
 
 # Apply themes
 # ~/.config/hypr/scripts/gtkthemes &

@@ -22,7 +22,8 @@ in {
   };
 
   home.packages = with pkgs; [
-    swaybg
+    mpv
+    mpvpaper
     swayidle
     swaylock
     wlogout
@@ -39,7 +40,6 @@ in {
     yad
     gnome.nautilus
     # geany
-    # mpv
     mpd
     mpc-cli
     ncmpcpp
