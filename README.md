@@ -73,7 +73,8 @@ username を key5n にしないとエラーが発生
 
 1. Macbook に Nix をインストール
    - おすすめ：https://github.com/DeterminateSystems/nix-installer
-     - なぜか 1 回目はエラーが発生
+     - 1 回目はエラーが発生することがある（原因不明）
+     - `--determinate` フラグをつけると nix が Determinate によって管理され、`nix-darwin` の一部の機能が使用できなくなるため注意
 2. Homebrew を**手動で**インストール
    - https://brew.sh/
 3. この dotfiles をもとにビルド
