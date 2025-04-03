@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    docker-compose
+    docker
     dive
     lazydocker
   ];
