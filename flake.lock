@@ -366,6 +366,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-2025-06-16": {
+      "locked": {
+        "lastModified": 1750065529,
+        "narHash": "sha256-E91ON9W3O6/Z1hG8s6+o4iJu1tFb2b6lmCPCklAIMHM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e53b1743e65c76e970612f51972b7ee87e380729",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e53b1743e65c76e970612f51972b7ee87e380729",
+        "type": "github"
+      }
+    },
     "nixpkgs-darwin": {
       "locked": {
         "lastModified": 1739397811,
@@ -480,6 +496,7 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-2025-06-16": "nixpkgs-2025-06-16",
         "nixpkgs-darwin": "nixpkgs-darwin",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "xremap-flake": "xremap-flake"

@@ -25,6 +25,7 @@
     ./gpg
     ./container
     ./yazi
+    ./claude
   ];
 
   home.shellAliases = {

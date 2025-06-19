@@ -14,6 +14,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # To get the latest version of claude code
+    nixpkgs-2025-06-16.url = "github:nixos/nixpkgs/e53b1743e65c76e970612f51972b7ee87e380729";
+
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,24 +39,32 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs:
   let
-    pkgs-unstable = import inputs.nixpkgs-unstable {
-      system = "x86_64-linux";
+    genSpecialArgs = system: inputs // {
+      pkgs-unstable = import inputs.nixpkgs-unstable {
+          inherit system;
+          # To use claude code, we need to allow the installation of non-free software
+          config.allowUnfree = true;
+      };
+      pkgs-2025-06-16 = import inputs.nixpkgs-2025-06-16 {
+          inherit system;
+          config.allowUnfree = true;
+      };
     };
   in {
-    nixosConfigurations = {
+    nixosConfigurations = let system = "x86_64-linux"; in {
       nixos-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./hosts/nixos-desktop/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs // { inherit pkgs-unstable; };
+            home-manager.extraSpecialArgs = genSpecialArgs system;
             home-manager.users.key5n = import ./home/linux/home.nix;
           }
         ];
-        specialArgs = inputs // { inherit pkgs-unstable; };
+        specialArgs = genSpecialArgs system;
       };
 
       nixos-subdesktop = nixpkgs.lib.nixosSystem {
@@ -74,20 +86,21 @@
     darwinConfigurations = let
       userName = "key5n";
       hostName = "Key5n-MacBook-Pro";
+      system = "aarch64-darwin";
       in {
       ${hostName} = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+        inherit system;
         modules = [
           ./hosts/darwin-macbook/configuration.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs // { inherit userName hostName; };
+            home-manager.extraSpecialArgs = genSpecialArgs system;
             home-manager.users."${userName}" = import ./home/darwin/home.nix;
           }
         ];
-        specialArgs = inputs // { inherit userName hostName; };
+        specialArgs = genSpecialArgs system // { inherit userName hostName; };
       };
 
     };
