@@ -5,9 +5,6 @@
   home.packages = [
     pkgs.python312
     pkgs.black
+    pkgs.uv
   ];
-
-  programs.poetry = {
-    enable = true;
-  };
 }
