@@ -79,6 +79,10 @@
   programs.zsh = {
     initExtra = ''
       export PATH="/opt/homebrew/bin:$PATH"
+
+      for f in /etc/profile.d/*.sh; do
+        [ -r "$f" ] && source "$f"
+      done
     '';
   };
 

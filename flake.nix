@@ -35,6 +35,13 @@
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix.url = "github:ryantm/agenix";
+
+    my-secrets = {
+      url = "git+ssh://git@github.com/Key5n/nix-secrets.git?shallow=1";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs:
