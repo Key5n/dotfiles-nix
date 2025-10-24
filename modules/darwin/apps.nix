@@ -7,7 +7,6 @@
 
     masApps = {
       # Office apps should be installed manually
-      LINE = 539883307;
     };
 
     onActivation = {
