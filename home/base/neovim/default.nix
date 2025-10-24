@@ -24,6 +24,7 @@
     #-- lua
     stylua
     lua-language-server
+    luajitPackages.luarocks-nix
 
     #-- latex
     texlab

@@ -50,7 +50,7 @@
     # '')
     pkgs.vscode
     pkgs.noto-fonts-cjk-sans
-    pkgs.fira-code-nerdfont
+    pkgs.nerd-fonts.fira-code
     pkgs.discord
     pkgs.slack
     pkgs.fastfetch

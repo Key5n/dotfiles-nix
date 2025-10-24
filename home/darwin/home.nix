@@ -40,7 +40,8 @@
     # '')
     # pkgs.google-chrome google-chrome is not available on aarch64-apple-darwin
     pkgs.noto-fonts-cjk-sans
-    pkgs.fira-code-nerdfont
+    pkgs.noto-fonts-cjk-serif
+    pkgs.nerd-fonts.fira-code
     pkgs.fastfetch
   ];
 
@@ -74,10 +75,8 @@
     # EDITOR = "vim";
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   programs.zsh = {
-    initExtra = ''
+    initContent = ''
       export PATH="/opt/homebrew/bin:$PATH"
 
       for f in /etc/profile.d/*.sh; do

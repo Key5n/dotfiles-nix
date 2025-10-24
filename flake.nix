@@ -1,33 +1,20 @@
 {
   description = "My dotfiles";
 
-  nixConfig = {
-    # substituers will be appended to the default substituters when fetching packages
-    extra-substituters = [
-      "https://anyrun.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
-    ];
-  };
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # To get the latest version of claude code
-    nixpkgs-2025-06-16.url = "github:nixos/nixpkgs/e53b1743e65c76e970612f51972b7ee87e380729";
 
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+      url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
@@ -50,10 +37,6 @@
       pkgs-unstable = import inputs.nixpkgs-unstable {
           inherit system;
           # To use claude code, we need to allow the installation of non-free software
-          config.allowUnfree = true;
-      };
-      pkgs-2025-06-16 = import inputs.nixpkgs-2025-06-16 {
-          inherit system;
           config.allowUnfree = true;
       };
     };

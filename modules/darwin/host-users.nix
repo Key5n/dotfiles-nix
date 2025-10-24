@@ -8,4 +8,5 @@
   };
 
   nix.settings.trusted-users = [ userName ];
+  nix.enable = false;
 }

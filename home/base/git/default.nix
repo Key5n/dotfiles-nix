@@ -16,9 +16,12 @@ in {
 
     programs.git = {
       enable = true;
-      userName  = "Key5n";
-      userEmail = "k.nogami.472@stn.nitech.ac.jp";
-      extraConfig = {
+
+      settings = {
+        user = {
+          email = "k.nogami.472@stn.nitech.ac.jp";
+          name = "Key5n";
+        };
         push = {
           autoSetupRemote = true;
         };
@@ -34,7 +37,7 @@ in {
     xdg.configFile."git/alias.zsh".source = mkIf zsh_cfg.enable ./alias.zsh;
 
     programs.zsh = mkIf zsh_cfg.enable {
-      initExtra = ''
+      initContent = ''
         source ~/.config/git/alias.zsh
       '';
     };

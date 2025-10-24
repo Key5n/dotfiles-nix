@@ -15,9 +15,9 @@
     ../../modules/darwin/secrets.nix
   ];
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
+  # determinate system with nix darwin
+  nix.enable = false;
+
   nixpkgs.config.allowUnfree = true;
 
   # Necessary for using flakes on this system.

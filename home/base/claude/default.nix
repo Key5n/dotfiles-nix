@@ -1,6 +1,6 @@
-{ pkgs-2025-06-16, ... }: {
+{ pkgs, ... }: {
   # nixpkgs/24.11 doesn't have
-  home.packages = with pkgs-2025-06-16; [
-     claude-code
+  home.packages = with pkgs; [
+    claude-code
   ];
 }

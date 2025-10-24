@@ -26,7 +26,7 @@
       }
     ];
 
-    initExtra = lib.mkIf pkgs.stdenv.isLinux ''
+    initContent = lib.mkIf pkgs.stdenv.isLinux ''
       bindkey "''${key[Up]}" up-line-or-search
     '';
   };
