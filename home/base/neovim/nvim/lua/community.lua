@@ -21,4 +21,5 @@ return {
   { import = "astrocommunity.markdown-and-latex.vimtex" },
   { import = "astrocommunity.docker.lazydocker" },
   { import = "astrocommunity.programming-language-support.csv-vim" },
+  { import = "astrocommunity.completion.copilot-lua" },
 }
