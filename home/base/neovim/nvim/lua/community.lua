@@ -22,4 +22,5 @@ return {
   { import = "astrocommunity.docker.lazydocker" },
   { import = "astrocommunity.programming-language-support.csv-vim" },
   { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.completion.avante-nvim" },
 }
