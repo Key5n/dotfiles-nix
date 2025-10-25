@@ -5,10 +5,16 @@ return {
   build = vim.fn.has "win32" ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
     or "make",
   event = "VeryLazy",
+  ---@alias Mode "agentic" | "legacy"
+  ---@type Mode
+  mode = "legacy", -- The default mode for interaction. "agentic" uses tools to automatically generate code, "legacy" uses the old planning method to generate code.
   ---@module 'avante'
   ---@type avante.Config
   opts = {
     provider = "claude",
+    behaviour = {
+      auto_approve_tool_permissions = false,
+    },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
