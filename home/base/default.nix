@@ -1,5 +1,5 @@
-{ pkgs, ...}: {
-
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     just
     openssl
@@ -26,7 +26,7 @@
     ./gpg
     ./container
     ./yazi
-    ./claude
+    ./coding-agent
   ];
 
   home.shellAliases = {
