@@ -1,6 +1,7 @@
-{ ... }: {
+{ ... }:
+{
   services = {
-    xserver =  {
+    xserver = {
       enable = false;
     };
 
@@ -19,5 +20,5 @@
     };
   };
   # fix https://github.com/ryan4yin/nix-config/issues/10
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 }

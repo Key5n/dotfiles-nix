@@ -1,4 +1,4 @@
-{ pkgs, userName, ...}:
+{ pkgs, userName, ... }:
 {
   system = {
 
@@ -13,7 +13,7 @@
     defaults = {
       dock = {
         autohide = true;
-        show-recents = false;  # disable recent apps
+        show-recents = false; # disable recent apps
 
         persistent-apps = [
           "/System/Applications/Launchpad.app"
@@ -24,15 +24,15 @@
       };
 
       finder = {
-        _FXShowPosixPathInTitle = true;  # show full path in finder title
-        AppleShowAllExtensions = true;  # show all file extensions
-        ShowStatusBar = true;  # show status bar
+        _FXShowPosixPathInTitle = true; # show full path in finder title
+        AppleShowAllExtensions = true; # show all file extensions
+        ShowStatusBar = true; # show status bar
         ShowPathbar = true; # Show path breadcrumbs in finder windows
       };
 
       trackpad = {
-        Clicking = true;  # enable tap to click
-        TrackpadRightClick = true;  # enable two finger right click
+        Clicking = true; # enable tap to click
+        TrackpadRightClick = true; # enable two finger right click
       };
 
       CustomUserPreferences = {

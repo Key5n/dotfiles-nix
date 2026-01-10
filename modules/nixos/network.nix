@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -40,7 +41,10 @@
               "gw.mains.nitech.ac.jp"
             ];
             encap = true;
-            vips = [ "0.0.0.0" "::" ];
+            vips = [
+              "0.0.0.0"
+              "::"
+            ];
 
             local."1" = {
               auth = "eap-mschapv2";
@@ -55,7 +59,10 @@
 
             children = {
               net = {
-                remote_ts = [ "0.0.0.0/0" "::/0" ];
+                remote_ts = [
+                  "0.0.0.0/0"
+                  "::/0"
+                ];
               };
             };
           };

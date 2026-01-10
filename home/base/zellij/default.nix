@@ -1,5 +1,7 @@
-let theme = (import ../../../modules/base/colorscheme).theme;
-in {
+let
+  theme = (import ../../../modules/base/colorscheme).theme;
+in
+{
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;

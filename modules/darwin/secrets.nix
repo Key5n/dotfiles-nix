@@ -1,6 +1,13 @@
-{ config, pkgs, agenix, my-secrets, ... }: {
+{
+  config,
+  pkgs,
+  agenix,
+  my-secrets,
+  ...
+}:
+{
   imports = [
-     agenix.nixosModules.default
+    agenix.nixosModules.default
   ];
 
   # if you changed this key, you need to regenerate all encrypt files from the decrypt contents!
@@ -12,7 +19,7 @@
   ];
 
   age.secrets."coding-agent-api-keys" = {
-    file =  "${my-secrets}/coding-agent-api-keys.age";  # refer to ./xxx.age located in `mysecrets` repo
+    file = "${my-secrets}/coding-agent-api-keys.age"; # refer to ./xxx.age located in `mysecrets` repo
     owner = "key5n";
   };
 

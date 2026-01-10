@@ -1,6 +1,8 @@
-{ anyrun, pkgs, ... }: let
+{ anyrun, pkgs, ... }:
+let
   theme = (import ../../../../../modules/base/colorscheme).theme;
-in  {
+in
+{
   imports = [
     anyrun.homeManagerModules.default
   ];

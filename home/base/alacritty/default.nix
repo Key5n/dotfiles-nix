@@ -1,6 +1,8 @@
-{ ... }: let
+{ ... }:
+let
   theme = (import ../../../modules/base/colorscheme).theme;
-in {
+in
+{
   programs.alacritty = {
     enable = true;
     settings = {

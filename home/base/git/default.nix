@@ -5,8 +5,10 @@
   ...
 }:
 with lib;
-let zsh_cfg = config.programs.zsh;
-in {
+let
+  zsh_cfg = config.programs.zsh;
+in
+{
 
   config = {
 

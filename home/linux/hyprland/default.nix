@@ -1,6 +1,8 @@
-{ pkgs, ...}:  let
+{ pkgs, ... }:
+let
   package = pkgs.hyprland;
-in {
+in
+{
   imports = [
     ./nvidia.nix
     ./conf/anyrun
@@ -88,7 +90,6 @@ in {
     #   recursive = true;
     # };
   };
-
 
   programs.google-chrome = {
     enable = true;

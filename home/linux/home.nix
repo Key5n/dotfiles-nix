@@ -78,23 +78,24 @@
 
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = let
-      browser = ["firefox.desktop"];
-      editor = ["code.desktop"];
-    in {
-      "x-scheme-handler/http" = browser;
-      "x-scheme-handler/https" = browser;
-      "x-scheme-handler/chrome" = browser;
-      "text/html" = browser;
-      "application/x-extension-htm" = browser;
-      "application/x-extension-html" = browser;
-      "application/x-extension-shtml" = browser;
-      "application/xhtml+xml" = browser;
-      "application/x-extension-xhtml" = browser;
-      "application/x-extension-xht" = browser;
-    };
+    defaultApplications =
+      let
+        browser = [ "firefox.desktop" ];
+        editor = [ "code.desktop" ];
+      in
+      {
+        "x-scheme-handler/http" = browser;
+        "x-scheme-handler/https" = browser;
+        "x-scheme-handler/chrome" = browser;
+        "text/html" = browser;
+        "application/x-extension-htm" = browser;
+        "application/x-extension-html" = browser;
+        "application/x-extension-shtml" = browser;
+        "application/xhtml+xml" = browser;
+        "application/x-extension-xhtml" = browser;
+        "application/x-extension-xht" = browser;
+      };
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

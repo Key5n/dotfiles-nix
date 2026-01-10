@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   wayland.windowManager.hyprland.settings.env = [
     # for hyprland with nvidia gpu, ref https://wiki.hyprland.org/Nvidia/
     "LIBVA_DRIVER_NAME,nvidia"

@@ -5,22 +5,22 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nvidia.nix
-      ../../modules/nixos/xremap/xremap.nix
-      ../../modules/nixos/i18n.nix
-      ../../modules/nixos/steam.nix
-      # ../../modules/nixos/xorg.nix
-      ../../modules/nixos/wayland.nix
-      ../../modules/nixos/misc.nix
-      ../../modules/nixos/waydroid.nix
-      ../../modules/nixos/docker.nix
-      ../../modules/nixos/thunar.nix
-      ../../modules/nixos/network.nix
-      ../../modules/base/tailscale.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./nvidia.nix
+    ../../modules/nixos/xremap/xremap.nix
+    ../../modules/nixos/i18n.nix
+    ../../modules/nixos/steam.nix
+    # ../../modules/nixos/xorg.nix
+    ../../modules/nixos/wayland.nix
+    ../../modules/nixos/misc.nix
+    ../../modules/nixos/waydroid.nix
+    ../../modules/nixos/docker.nix
+    ../../modules/nixos/thunar.nix
+    ../../modules/nixos/network.nix
+    ../../modules/base/tailscale.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -60,9 +60,15 @@
   users.users.key5n = {
     isNormalUser = true;
     description = "key5n";
-    extraGroups = [ "networkmanager" "wheel" "docker" "video" "i2c"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "video"
+      "i2c"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 

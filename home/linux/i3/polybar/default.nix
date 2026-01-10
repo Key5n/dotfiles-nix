@@ -1,7 +1,8 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
   services.polybar = {
     enable = true;
     script = builtins.readFile ./config/scripts/launch.sh;

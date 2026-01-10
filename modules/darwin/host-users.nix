@@ -1,8 +1,9 @@
-{ hostName, userName, ... }: {
+{ hostName, userName, ... }:
+{
   networking.hostName = hostName;
   networking.computerName = hostName;
 
-  users.users."${userName}"= {
+  users.users."${userName}" = {
     home = "/Users/${userName}";
     description = userName;
   };

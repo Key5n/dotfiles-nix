@@ -9,6 +9,9 @@ darwin:
 nixos:
   sudo nixos-rebuild switch --flake ~/dotfiles-nix#nixos-desktop
 
+wsl:
+  sudo nixos-rebuild switch --flake ~/dotfiles-nix#nixos-wsl
+
 test:
   sudo nixos-rebuild test --flake ~/dotfiles-nix#nixos-desktop
 
@@ -17,3 +20,8 @@ list-generations:
 
 update:
   nix flake update
+
+format:
+  # Passing directories or non-Nix files (such as ".") is deprecated and will be unsupported soon.
+  # Please use the `pkgs.nixfmt-tree` wrapper instead, or https://github.com/numtide/treefmt-nix for more flexibility
+  nix fmt **/*.nix
