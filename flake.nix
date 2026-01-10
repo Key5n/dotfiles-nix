@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -71,6 +71,21 @@
         ];
         specialArgs = inputs;
       };
+
+      nixos-wsl = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/wsl
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nixos = import ./home/wsl/home.nix;
+          }
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
 
     darwinConfigurations = let
@@ -92,7 +107,6 @@
         ];
         specialArgs = genSpecialArgs system // { inherit userName hostName; };
       };
-
     };
   };
 }
