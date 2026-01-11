@@ -28,8 +28,4 @@
     ./yazi
     ./coding-agent
   ];
-
-  home.shellAliases = {
-    e = "exit";
-  };
 }

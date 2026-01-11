@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 {
@@ -13,6 +14,13 @@
       ll = "ls -l";
       la = "ls -la";
       c = "code -r";
+      e = "exit";
+    }
+    // lib.optionalAttrs (lib.elem pkgs.lazygit config.home.packages) {
+      lag = "lazygit";
+    }
+    // lib.optionalAttrs (lib.elem pkgs.lazydocker config.home.packages) {
+      lad = "lazydocker";
     };
 
     plugins = [
