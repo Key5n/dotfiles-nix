@@ -18,5 +18,9 @@
   # Configure Codex to invoke the notifier script.
   home.file."${config.xdg.configHome}/codex/config.toml".text = ''
     notify = ["python3", "${config.xdg.configHome}/codex/notify.py"]
+    model_reasoning_effort = "high"
+
+    [tools]
+    web_search = true
   '';
 }
