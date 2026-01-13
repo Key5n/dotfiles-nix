@@ -20,7 +20,7 @@ in
       themes.custom.cyan = theme.scheme.colors.cyan;
       themes.custom.white = theme.scheme.colors.white;
       themes.custom.orange = theme.scheme.colors.green;
-      show_start_up_tips = false;
+      show_startup_tips = false;
     };
   };
 
