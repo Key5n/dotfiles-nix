@@ -16,14 +16,17 @@
   };
 
   # Configure Codex to invoke the notifier script.
-  home.file.".codex/config.toml".text = ''
-    model = "gpt-5.2-codex"
-    notify = ["python3", "${config.home.homeDirectory}/.codex/notify.py"]
-    model_reasoning_effort = "high"
+  home.file.".codex/config.toml" = {
+    text = ''
+      model = "gpt-5.2-codex"
+      notify = ["python3", "${config.home.homeDirectory}/.codex/notify.py"]
+      model_reasoning_effort = "high"
 
-    [features]
-    web_search_request = true
-  '';
+      [features]
+      web_search_request = true
+    '';
+    force = true;
+  };
 
   home.file.".codex/prompts".source = ./prompts;
 }
