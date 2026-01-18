@@ -1,10 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  user-name,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "key5n";
-  home.homeDirectory = "/Users/key5n";
+  home.username = user-name;
+  home.homeDirectory = "/Users/${user-name}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -69,7 +74,7 @@
   #
   # or
   #
-  #  /etc/profiles/per-user/key5n/etc/profile.d/hm-session-vars.sh
+  #  /etc/profiles/per-user/${config.home.username}/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
     # EDITOR = "vim";

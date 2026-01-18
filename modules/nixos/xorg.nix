@@ -1,4 +1,4 @@
-{ ... }:
+{ user-name, ... }:
 {
   services = {
     xserver = {
@@ -21,7 +21,7 @@
       # Enable automatic login for the user.
       autoLogin = {
         enable = true;
-        user = "key5n";
+        user = user-name;
       };
     };
   };

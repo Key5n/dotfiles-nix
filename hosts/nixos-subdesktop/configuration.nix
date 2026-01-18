@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  user-name,
+  ...
+}:
 
 {
   imports = [
@@ -79,9 +84,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.key5n = {
+  users.users.${user-name} = {
     isNormalUser = true;
-    description = "key5n";
+    description = user-name;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -94,7 +99,7 @@
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "key5n";
+  services.xserver.displayManager.autoLogin.user = user-name;
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;

@@ -58,6 +58,7 @@
       nixosConfigurations =
         let
           system = "x86_64-linux";
+          user-name = "key5n";
         in
         {
           nixos-desktop = nixpkgs.lib.nixosSystem {
@@ -68,26 +69,34 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = genSpecialArgs system;
-                home-manager.users.key5n = import ./home/linux/home.nix;
+                home-manager.extraSpecialArgs = genSpecialArgs system // {
+                  inherit user-name;
+                };
+                home-manager.users.${user-name} = import ./home/linux/home.nix;
               }
             ];
-            specialArgs = genSpecialArgs system;
+            specialArgs = genSpecialArgs system // {
+              inherit user-name;
+            };
           };
 
           nixos-subdesktop = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            inherit system;
             modules = [
               ./hosts/nixos-subdesktop/configuration.nix
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = inputs;
-                home-manager.users.key5n = import ./home/linux/home.nix;
+                home-manager.extraSpecialArgs = inputs // {
+                  inherit user-name;
+                };
+                home-manager.users.${user-name} = import ./home/linux/home.nix;
               }
             ];
-            specialArgs = inputs;
+            specialArgs = genSpecialArgs system // {
+              inherit user-name;
+            };
           };
 
           nixos-wsl = nixpkgs.lib.nixosSystem {
@@ -98,22 +107,26 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = genSpecialArgs system;
-                home-manager.users.key5n = import ./home/wsl/home.nix;
+                home-manager.extraSpecialArgs = genSpecialArgs system // {
+                  inherit user-name;
+                };
+                home-manager.users.${user-name} = import ./home/wsl/home.nix;
               }
             ];
-            specialArgs = genSpecialArgs system;
+            specialArgs = genSpecialArgs system // {
+              inherit user-name;
+            };
           };
         };
 
       darwinConfigurations =
         let
-          userName = "key5n";
-          hostName = "Key5n-MacBook-Pro";
+          user-name = "key5n";
+          host-name = "Key5n-MacBook-Pro";
           system = "aarch64-darwin";
         in
         {
-          ${hostName} = nix-darwin.lib.darwinSystem {
+          ${host-name} = nix-darwin.lib.darwinSystem {
             inherit system;
             modules = [
               ./hosts/darwin-macbook/configuration.nix
@@ -121,12 +134,14 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = genSpecialArgs system;
-                home-manager.users."${userName}" = import ./home/darwin/home.nix;
+                home-manager.extraSpecialArgs = genSpecialArgs system // {
+                  inherit user-name;
+                };
+                home-manager.users."${user-name}" = import ./home/darwin/home.nix;
               }
             ];
             specialArgs = genSpecialArgs system // {
-              inherit userName hostName;
+              inherit user-name host-name;
             };
           };
         };

@@ -3,6 +3,7 @@
   pkgs,
   agenix,
   my-secrets,
+  user-name,
   ...
 }:
 {
@@ -20,7 +21,7 @@
 
   age.secrets."coding-agent-api-keys" = {
     file = "${my-secrets}/coding-agent-api-keys.age"; # refer to ./xxx.age located in `mysecrets` repo
-    owner = "key5n";
+    owner = user-name;
   };
 
   environment.etc."profile.d/coding-agent.sh".text = ''

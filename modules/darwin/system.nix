@@ -1,4 +1,4 @@
-{ pkgs, userName, ... }:
+{ pkgs, user-name, ... }:
 {
   system = {
 
@@ -8,7 +8,7 @@
     #   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     # '';
 
-    primaryUser = userName;
+    primaryUser = user-name;
 
     defaults = {
       dock = {

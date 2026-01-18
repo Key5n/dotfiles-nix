@@ -2,6 +2,7 @@
   pkgs,
   pkgs-unstable,
   lib,
+  user-name,
   ...
 }:
 {
@@ -35,5 +36,5 @@
   ];
 
   programs.zsh.enable = true;
-  users.users.key5n.shell = pkgs.zsh;
+  users.users.${user-name}.shell = pkgs.zsh;
 }

@@ -1,13 +1,18 @@
-{ nixos-wsl, pkgs, ... }:
+{
+  nixos-wsl,
+  pkgs,
+  user-name,
+  ...
+}:
 {
   imports = [
     nixos-wsl.nixosModules.default
-    ../../modules/base/secrets.nix
+    # ../../modules/base/secrets.nix
   ];
 
   wsl = {
     enable = true;
-    defaultUser = "key5n";
+    defaultUser = user-name;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -23,7 +28,7 @@
   ];
 
   programs.zsh.enable = true;
-  users.users.key5n.shell = pkgs.zsh;
+  users.users.${user-name}.shell = pkgs.zsh;
 
   system.stateVersion = "25.05";
 }

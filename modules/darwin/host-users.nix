@@ -1,13 +1,13 @@
-{ hostName, userName, ... }:
+{ host-name, user-name, ... }:
 {
-  networking.hostName = hostName;
-  networking.computerName = hostName;
+  networking.hostName = host-name;
+  networking.computerName = host-name;
 
-  users.users."${userName}" = {
-    home = "/Users/${userName}";
-    description = userName;
+  users.users."${user-name}" = {
+    home = "/Users/${user-name}";
+    description = user-name;
   };
 
-  nix.settings.trusted-users = [ userName ];
+  nix.settings.trusted-users = [ user-name ];
   nix.enable = false;
 }
