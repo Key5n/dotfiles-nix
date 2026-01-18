@@ -21,6 +21,9 @@ in
       themes.custom.white = theme.scheme.colors.white;
       themes.custom.orange = theme.scheme.colors.green;
       show_startup_tips = false;
+      keybinds = {
+        unbind = [ "Alt l" ];
+      };
     };
   };
 
