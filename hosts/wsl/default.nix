@@ -15,6 +15,11 @@
     "flakes"
   ];
 
+  # Need to install fira-code and configure terminal in Windows
+  fonts.packages = with pkgs; [
+    fira-code
+  ];
+
   programs.zsh.enable = true;
   users.users.nixos.shell = pkgs.zsh;
 
