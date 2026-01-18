@@ -13,6 +13,7 @@
   wsl = {
     enable = true;
     defaultUser = user-name;
+    docker-desktop.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
