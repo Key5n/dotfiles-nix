@@ -99,7 +99,7 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = genSpecialArgs system;
-                home-manager.users.nixos = import ./home/wsl/home.nix;
+                home-manager.users.key5n = import ./home/wsl/home.nix;
               }
             ];
             specialArgs = genSpecialArgs system;

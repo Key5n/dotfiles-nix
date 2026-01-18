@@ -7,6 +7,7 @@
 
   wsl = {
     enable = true;
+    defaultUser = "key5n";
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -22,7 +23,7 @@
   ];
 
   programs.zsh.enable = true;
-  users.users.nixos.shell = pkgs.zsh;
+  users.users.key5n.shell = pkgs.zsh;
 
   system.stateVersion = "25.05";
 }
