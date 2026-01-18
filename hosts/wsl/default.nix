@@ -1,7 +1,8 @@
-{ inputs, pkgs, ... }:
+{ nixos-wsl, pkgs, ... }:
 {
   imports = [
-    inputs.nixos-wsl.nixosModules.default
+    nixos-wsl.nixosModules.default
+    ../../modules/base/secrets.nix
   ];
 
   wsl = {

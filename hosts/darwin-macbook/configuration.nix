@@ -13,7 +13,7 @@
     ../../modules/darwin/host-users.nix
     ../../modules/darwin/apps.nix
     ../../modules/darwin/system.nix
-    ../../modules/darwin/secrets.nix
+    ../../modules/base/secrets.nix
   ];
 
   # determinate system with nix darwin

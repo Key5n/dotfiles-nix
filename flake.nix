@@ -102,7 +102,7 @@
                 home-manager.users.nixos = import ./home/wsl/home.nix;
               }
             ];
-            specialArgs = { inherit inputs; };
+            specialArgs = genSpecialArgs system;
           };
         };
 
