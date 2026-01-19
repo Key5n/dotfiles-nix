@@ -21,8 +21,9 @@ in
 
       settings = {
         user = {
-          email = "k.nogami.472@stn.nitech.ac.jp";
+          email = "key_ngmn@outlook.jp";
           name = "Key5n";
+          signingkey = "~/.ssh/id_ed25519.pub";
         };
         push = {
           autoSetupRemote = true;
@@ -43,6 +44,12 @@ in
         };
         merge = {
           conflictStyle = "zdiff3";
+        };
+        gpg = {
+          format = "ssh";
+        };
+        commit = {
+          gpgsign = true;
         };
       };
     };
