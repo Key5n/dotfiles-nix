@@ -63,6 +63,7 @@ in
             pager = "delta --paging=never";
           }
         ];
+        promptToReturnFromSubprocess = false;
       };
     };
 
