@@ -7,7 +7,7 @@
 {
   imports = [
     nixos-wsl.nixosModules.default
-    # ../../modules/base/secrets.nix
+    ../../modules/base/secrets.nix
   ];
 
   wsl = {
