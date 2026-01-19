@@ -23,7 +23,6 @@
     ./julia
     ./kitty
     ./r
-    ./gpg
     ./container
     ./yazi
     ./coding-agent
