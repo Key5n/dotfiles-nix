@@ -26,7 +26,7 @@
       "slack"
       "figma"
       "microsoft-edge"
-      "affinity"
+      # "affinity"
     ];
   };
 }
