@@ -1,9 +1,10 @@
 ---
-description: Open a draft Pull Request
+description: Commit and Open a draft Pull Request
 ---
 
-Open a draft Pull Request for the work of the current branch with a concise title.
-The description should follow the next format:
+Commit the current worktree with a concise title.
+Open a draft Pull Request of the current branch with the default title (commit message).
+The description should follow the next format (you should fill each section if necessary):
 
 ```
 # 目的
@@ -13,3 +14,5 @@ The description should follow the next format:
 # UI スクリーンショット（見た目に変更がある場合のみ）
 
 ```
+
+But you don't have to fill the UI screenshots section by (e.g.) uploading UI screenshots now because it is done manually.
