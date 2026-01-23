@@ -28,8 +28,14 @@
     fira-code
   ];
 
-  programs.zsh.enable = true;
-  users.users.${user-name}.shell = pkgs.zsh;
+  environment.shells = [
+    pkgs.nushell
+  ];
+  programs.bash.interactiveShellInit = ''
+    if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
+      exec nu
+    fi
+  '';
 
   system.stateVersion = "25.05";
 }

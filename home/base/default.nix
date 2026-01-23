@@ -10,6 +10,7 @@
     ./git
     ./alacritty
     ./zsh
+    ./nushell
     ./powerlevel10k
     ./node
     ./neovim
