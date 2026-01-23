@@ -1,18 +1,24 @@
 ---
 description: Commit and Open a draft Pull Request
+argument-hint: [SPEC=<paths>]
 ---
 
-Commit the current worktree with a concise title.
-Open a draft Pull Request of the current branch with the default title (commit message).
-The description should follow the next format (you should fill each section if necessary):
+Open a draft Pull Request of the current branch.
+Follow the outline below for Pull Request, but adapt as needed.
 
-```
-# 目的
+Requirements:
 
-# 実装内容
+- Look specification file ($SPEC) up for commit message and Pull Request if it is provided.
+- Commit the current worktree with a concise title if no commits are done to the current branch.
+  - Don't commit specification files.
+- Make the title of the pull request the same as the commit message.
+- Keep the pull request very detailed to describe the change.
+- Maintain a professional tone.
+- Write Pull Request in Japanese.
 
-# UI スクリーンショット（見た目に変更がある場合のみ）
+Recommended Sections
 
-```
-
-But you don't have to fill the UI screenshots section by (e.g.) uploading UI screenshots now because it is done manually.
+- "問題"
+  - If "問題" (issues) are more relevant to call rather than issues, change the section name into "Purpose" ("目的").
+- "実装内容"
+  - You should explain this section as clear and precise as possible.
