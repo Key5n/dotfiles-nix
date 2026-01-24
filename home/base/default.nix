@@ -19,7 +19,7 @@
     ./latex
     ./c
     ./tmux
-    # ./starship
+    ./starship
     ./zellij
     ./julia
     ./kitty
