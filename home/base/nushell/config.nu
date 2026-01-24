@@ -1,3 +1,5 @@
+$env.config.show_bunner = false
+
 # zellij
 def start_zellij [] {
   if 'ZELLIJ' not-in ($env | columns) {
