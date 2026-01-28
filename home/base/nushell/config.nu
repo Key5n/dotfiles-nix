@@ -1,4 +1,4 @@
-$env.config.show_bunner = false
+$env.config.show_banner = false
 
 # zellij
 def start_zellij [] {
