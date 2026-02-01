@@ -10,7 +10,7 @@ $EXPLANATION
 ```
 
 Your final goal is to create a clear, concise, and well-structured specification with descriptive headings and actionable explanations for each section.
-Remeber to ask me some questions of the implementation before creating the document to clarify what I want to do.
+Remeber to ask me clarifying questions about anything ambiguous.
 
 Follow the outline below for the specification, but adapt as needed.
 
@@ -19,7 +19,7 @@ Speficication Requirements
 - Title the document "Speficication".
 - Markdown file with a relevant name that represents the file.
 - Use Markdown headings (#, ##, etc.) for structure.
-- Keep the document concise. 200-400 words is optimal.
+- Keep the document detailed. 400-800 words is optimal.
 - Keep explanations short, direct, and specific to this repository.
 - Maintain a professional, instructional tone.
 
