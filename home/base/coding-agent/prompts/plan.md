@@ -25,8 +25,6 @@ Speficication Requirements
 
 Recommended Sections
 
-- Issues.
-  - Explain issues of the current work or implementation.
-  - If purposes are more relevant to call rather than issues, change the section name into "Purpose".
-- Implementation.
+- Background.
+- Summary of Changes.
   - You should explain this section as clear and precise as possible.
