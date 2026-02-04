@@ -4,7 +4,7 @@ argument-hint: [MESSAGE="<Commit message>"]
 ---
 
 Commit the current worktree changes.
-If $MESSAGE is provided, use it; otherwise craft a concise commit message.
+If commit message ($MESSAGE) is provided, use it; otherwise craft a concise commit message.
 
 Requirements:
 
