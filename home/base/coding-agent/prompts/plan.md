@@ -17,7 +17,7 @@ Follow the outline below for the specification, but adapt as needed.
 Speficication Requirements
 
 - Title the document "Speficication".
-- Markdown file with a relevant name that represents the file.
+- Output to the console; do not create or write a file.
 - Use Markdown headings (#, ##, etc.) for structure.
 - Keep the document detailed. 400-800 words is optimal.
 - Keep explanations short, direct, and specific to this repository.
