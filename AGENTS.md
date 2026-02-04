@@ -1,0 +1,48 @@
+# Repository Guidelines
+
+## Project Structure & Module Organization
+
+- `flake.nix` defines the Nix flake entry points; `flake.lock` pins dependencies.
+- `hosts/` contains per-machine configs (e.g., `hosts/nixos-desktop/configuration.nix`, `hosts/darwin-macbook/configuration.nix`).
+- `modules/` holds reusable NixOS/nix-darwin modules (`modules/nixos/`, `modules/darwin/`, `modules/base/`).
+- `home/` contains Home Manager profiles and app configs (e.g., `home/base/`, `home/linux/`, `home/darwin/`).
+- Linux-specific configs (including UI assets) live under `home/linux/` (e.g., `home/linux/i3/`, `home/linux/hyprland/`).
+
+## Build, Test, and Development Commands
+
+Use the `Justfile` shortcuts (recommended):
+
+- `just darwin`: build + switch the macOS config for `Key5n-MacBook-Pro`.
+- `just nixos`: switch the NixOS desktop config.
+- `just wsl`: switch the NixOS WSL config.
+- `just test`: run `nixos-rebuild test` for the desktop config.
+- `just update`: `nix flake update` to refresh inputs.
+- `just format`: format Nix files via `nix fmt`.
+
+Direct examples:
+
+- `sudo nixos-rebuild switch --flake ~/dotfiles-nix#nixos-desktop`
+- `nix build .#darwinConfigurations.Key5n-MacBook-Pro.system`
+
+## Coding Style & Naming Conventions
+
+- Follow existing Nix style; keep indentation consistent (most files use two spaces).
+- Prefer lowercase file names with dashes when needed (e.g., `nixos-desktop`).
+- Run `just format` before committing changes to `.nix` files.
+
+## Testing Guidelines
+
+- There is no unit-test framework in this repo.
+- Validate changes with `just test` (NixOS) or `just darwin` (macOS) depending on the target host.
+- For Home Manager-only changes, run the relevant host switch command to ensure activation succeeds.
+
+## Commit & Pull Request Guidelines
+
+- Recent history mixes Conventional Commit-style subjects (e.g., `fix(codex): ...`) with short imperative summaries for docs.
+- Follow that pattern: concise subject line, no trailing period, scope when helpful.
+- PRs should describe the target host(s), summarize the module(s) touched, and include any manual steps required post-apply.
+
+## Security & Configuration Tips
+
+- Avoid committing real secrets; keep secrets out of version control and use NixOS secret mechanisms where possible (see `modules/base/secrets.nix`).
+- When adding machine-specific settings, prefer `hosts/` overrides instead of hard-coding in shared modules.
