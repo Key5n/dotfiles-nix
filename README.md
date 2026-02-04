@@ -1,33 +1,32 @@
-# NixOS デスクトップの設定
+# NixOS Desktop Setup
 
-インストール方法
+Installation
 
 ```sh
 sudo nixos-rebuild switch --flake github:Key5n/dotfiles-nix#nixos-desktop
 ```
 
-## Windows とのデュアルブートの設定
+## Dual Boot with Windows
 
-- Linux の ESP に Windows の boot loader をコピーする必要あり
-  - すると systemd-boot の auto detection が働く
+- You need to copy the Windows boot loader to the Linux ESP. Then `systemd-boot` auto detection works.
 
-## VPN 設定
+## VPN Setup
 
-1. まず `/modules/nixos/network.nix` の大学パスワードを変更すること
-2. （証明書がない場合）証明書をダウンロードすること
+1. First, change the university password in `/modules/nixos/network.nix`.
+2. If you don’t have the certificate, download it.
 
 ```
-# 接続
+# Connect
 sudo swanctl --initiate --child net
 
-# 切断
+# Disconnect
 sudo swanctl --terminate --child net
 
-# 接続状況確認（接続されている場合のみ表示）
+# Check connection status (only shown when connected)
 sudo swanctl --list-sas
 ```
 
-# Macbook の設定
+# MacBook Setup
 
 ```sh
 cd ~/dotfiles-nix
@@ -35,56 +34,32 @@ nix build .#darwinConfigurations."Key5n-MacBook-Pro".system --extra-experimental
 ./result/sw/bin/darwin-rebuild switch --flake .#Key5n-MacBook-Pro
 ```
 
-注意
-username を key5n にしないとエラーが発生
+Note: If the username is not `key5n`, an error occurs.
 
-## 手動でやる必要がある設定
+## Settings That Must Be Done Manually
 
-- 日本語のライブ変換の無効化
-  1. 右上のキーボードを日本語に切り替えてクリック
-  2. "Live Conversion" を無効化
-- capslock key を command key に変更
-  - Settings > Keyboard > Keyboard Shortcut > Modifier Key
-- 入力ソースの切り替え方法を Command + Space に変更
-  - Spotlight を無効化
-    - デフォルトショートカットが Cmd + Space のためブッキング
-    - Settings > Keyboard > Modifier Key
-  - Settings > Keyboard > Keyboard Shortcut > Input Source
-- GitHub の SSH 設定
-  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-- Raycast のショートカットの設定
-  1. Raycast を手動で起動
-     - ログイン時に起動されるようにする
-  2. 右上から Raycast のアイコンをクリック
-  3. settings を開き Raycast Hotkey を設定
-     - デフォルトは Option + Space
-- Office のインストール
-  - Office のウェブサイトを開く
-  - 大学のアカウントでログイン
-  - インストール
-- Docker のインストール
-  - https://docs.docker.com/desktop/install/mac-install/
-- 壁紙の設定
-- デスクトップをクリックでデスクトップの表示を無効化
-  - Settings > Desktop and Dock > Desktop and Stage Manager
-- （もしかしたら）App Store からアプリケーションの手動インストール
+- Disable Japanese live conversion. Steps: (1) Switch the keyboard in the top-right to Japanese and click it. (2) Disable “Live Conversion”.
+- Change the Caps Lock key to the Command key. Path: Settings > Keyboard > Keyboard Shortcut > Modifier Key.
+- Change input source switching to Command + Space. Also disable Spotlight because its default shortcut conflicts with Cmd + Space. Paths: Settings > Keyboard > Modifier Key, and Settings > Keyboard > Keyboard Shortcut > Input Source.
+- GitHub SSH setup: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+- Raycast shortcut setup. Steps: (1) Launch Raycast manually and set it to start at login. (2) Click the Raycast icon in the top-right. (3) Open settings and set the Raycast hotkey (default is Option + Space).
+- Install Office. Steps: (1) Open the Office website. (2) Log in with your university account. (3) Install.
+- Install Docker: https://docs.docker.com/desktop/install/mac-install/
+- Set wallpaper.
+- Disable “click desktop to show desktop”. Path: Settings > Desktop and Dock > Desktop and Stage Manager.
+- (Possibly) manually install applications from the App Store.
 
-## インストール方法
+## Installation (Mac)
 
-1. Macbook に Nix をインストール
-   - おすすめ：https://github.com/DeterminateSystems/nix-installer
-     - 1 回目はエラーが発生することがある（原因不明）
-     - `--determinate` フラグをつけると nix が Determinate によって管理され、`nix-darwin` の一部の機能が使用できなくなるため注意
-2. Homebrew を**手動で**インストール
-   - https://brew.sh/
-3. この dotfiles をもとにビルド
+1. Install Nix on the MacBook. Recommended: https://github.com/DeterminateSystems/nix-installer
+   Note: The first run may fail for unknown reasons. If you add the `--determinate` flag, Nix will be managed by Determinate and some `nix-darwin` features become unavailable.
+2. Install Homebrew manually: https://brew.sh/
+3. Build from these dotfiles:
+   `nix build github:Key5n/dotfiles-nix#darwinConfigurations.Key5n-MacBook-Pro.system --extra-experimental-features 'nix-command flakes'`
+4. Apply the build:
+   `./result/sw/bin/darwin-rebuild switch --flake github:Key5n/dotfiles-nix#Key5n-MacBook-Pro`
 
-   - `nix build github:Key5n/dotfiles-nix#darwinConfigurations.Key5n-MacBook-Pro.system --extra-experimental-features 'nix-command flakes'`
-
-4. ビルドファイルの適用
-   - `./result/sw/bin/darwin-rebuild switch --flake github:Key5n/dotfiles-nix#Key5n-MacBook-Pro`
-
-# 参考
+# References
 
 - https://daiderd.com/nix-darwin/manual/index.html
 - https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/minimal/flake.nix
