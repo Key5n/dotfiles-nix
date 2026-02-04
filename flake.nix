@@ -11,6 +11,8 @@
     };
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    systems.url = "github:nix-systems/default";
 
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
@@ -38,9 +40,17 @@
       nixpkgs-unstable,
       nix-darwin,
       home-manager,
+      systems,
+      treefmt-nix,
       ...
     }@inputs:
     let
+      # Small tool to iterate over each systems
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+
+      # Eval the treefmt modules from ./treefmt.nix
+      treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+
       genSpecialArgs =
         system:
         inputs
@@ -53,8 +63,12 @@
         };
     in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+      # for `nix fmt`
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      # for `nix flake check`
+      checks = eachSystem (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+      });
 
       nixosConfigurations =
         let
