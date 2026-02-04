@@ -22,6 +22,9 @@
       notify = ["python3", "${config.home.homeDirectory}/.codex/notify.py"]
       model_reasoning_effort = "high"
 
+      approval_policy = "on-request"
+      sandbox_mode = "workspace-write"
+
       [features]
       web_search_request = true
     '';
