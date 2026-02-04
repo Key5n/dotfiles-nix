@@ -51,12 +51,12 @@ Note: If the username is not `key5n`, an error occurs.
 
 ## Installation (Mac)
 
-1. Install Nix on the MacBook. Recommended: https://github.com/DeterminateSystems/nix-installer  
+1. Install Nix on the MacBook. Recommended: https://github.com/DeterminateSystems/nix-installer
    Note: The first run may fail for unknown reasons. If you add the `--determinate` flag, Nix will be managed by Determinate and some `nix-darwin` features become unavailable.
 2. Install Homebrew manually: https://brew.sh/
-3. Build from these dotfiles:  
+3. Build from these dotfiles:
    `nix build github:Key5n/dotfiles-nix#darwinConfigurations.Key5n-MacBook-Pro.system --extra-experimental-features 'nix-command flakes'`
-4. Apply the build:  
+4. Apply the build:
    `./result/sw/bin/darwin-rebuild switch --flake github:Key5n/dotfiles-nix#Key5n-MacBook-Pro`
 
 # References
