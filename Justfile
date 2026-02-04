@@ -34,7 +34,4 @@ update:
   nix flake update
 
 format:
-  # Passing directories or non-Nix files (such as ".") is deprecated and will be unsupported soon.
-  # Please use the `pkgs.nixfmt-tree` wrapper instead, or https://github.com/numtide/treefmt-nix for more flexibility
-  nix fmt **/*.nix
-  nix run .#treefmt
+  nix fmt
