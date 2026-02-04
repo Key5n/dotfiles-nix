@@ -4,6 +4,8 @@ import json
 import platform
 import subprocess
 import sys
+from datetime import datetime, timezone
+from pathlib import Path
 
 
 def is_wsl() -> bool:
@@ -49,8 +51,28 @@ def notify_wsl_powershell(title: str, message: str) -> None:
     subprocess.check_output(["powershell.exe", "-NoProfile", "-Command", script])
 
 
+def record_request(notification: dict, raw_payload: str) -> None:
+    log_path = Path.home() / ".codex" / "notify.log"
+    try:
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        entry = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "notification": notification,
+            "raw": raw_payload,
+        }
+        with log_path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(entry, ensure_ascii=True))
+            handle.write("\n")
+    except Exception:
+        pass
+
+
 def main() -> int:
-    notification = json.loads(sys.argv[1])
+    # Now record the request for auditing/debugging purposes
+    raw_payload = sys.argv[1]
+    notification = json.loads(raw_payload)
+    record_request(notification, raw_payload)
+
     if notification.get("type") != "agent-turn-complete":
         return 0
     title = f"Codex: {notification.get('last-assistant-message', 'Turn Complete!')}"
