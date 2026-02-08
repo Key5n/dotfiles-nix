@@ -17,7 +17,7 @@ Follow the outline below for the specification, but adapt as needed.
 Speficication Requirements
 
 - Title the document "Speficication".
-- Output to the console; do not create or write a file.
+- Output to a file named "plan-<suitable-name>.md", where <suitable-name> is inferred from the explanation.
 - Use Markdown headings (#, ##, etc.) for structure.
 - Keep the document detailed. 400-800 words is optimal.
 - Keep explanations short, direct, and specific to this repository.
