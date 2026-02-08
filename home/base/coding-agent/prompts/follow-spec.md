@@ -9,7 +9,7 @@ Follow the task below for further detail.
 
 Prerequisites:
 
-- Ensure the repo lives under `origin/` and preserves the `REPOSITORY-NAME/WORKTREE-NAME` structure.
+- Ensure the repo lives under `main/` and preserves the `REPOSITORY-NAME/WORKTREE-NAME` structure.
 - If $SPEC is empty, infer it by selecting the most recently modified Markdown file whose top-level title is "Speficication" or "Specification".
 
 Tasks:
