@@ -1,5 +1,9 @@
+{ pkgs, ... }:
 let
   theme = (import ../../../modules/base/colorscheme).theme;
+  shellAliases = {
+    "zj" = "zellij";
+  };
 in
 {
   programs.zellij = {
@@ -61,7 +65,7 @@ in
     };
   };
 
-  home.shellAliases = {
-    "zj" = "zellij";
-  };
+  # only works in bash/zsh, not nushell
+  home.shellAliases = shellAliases;
+  programs.nushell.shellAliases = shellAliases;
 }

@@ -7,6 +7,9 @@
 with lib;
 let
   zsh_cfg = config.programs.zsh;
+  shellAliases = {
+    lag = "lazygit";
+  };
 in
 {
 
@@ -76,5 +79,9 @@ in
         source ~/.config/git/alias.zsh
       '';
     };
+
+    # only works in bash/zsh, not nushell
+    home.shellAliases = shellAliases;
+    programs.nushell.shellAliases = shellAliases;
   };
 }
