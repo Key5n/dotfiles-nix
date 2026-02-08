@@ -59,6 +59,9 @@ in
     programs.lazygit = {
       enable = true;
       settings = {
+        refresher = {
+          refreshInterval = 1;
+        };
         git.pagers = [
           {
             pager = "delta --paging=never";
