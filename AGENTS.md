@@ -17,7 +17,7 @@ Use the `Justfile` shortcuts (recommended):
 - `just wsl`: switch the NixOS WSL config.
 - `just test`: run `nixos-rebuild test` for the desktop config.
 - `just update`: `nix flake update` to refresh inputs.
-- `just format`: format Nix files via `nix fmt`.
+- `just format`: format all supported file types.
 
 Direct examples:
 
@@ -28,7 +28,7 @@ Direct examples:
 
 - Follow existing Nix style; keep indentation consistent (most files use two spaces).
 - Prefer lowercase file names with dashes when needed (e.g., `nixos-desktop`).
-- Run `just format` before committing changes to `.nix` files.
+- Run `just format` before committing changes to formatted file types.
 
 ## Testing Guidelines
 
