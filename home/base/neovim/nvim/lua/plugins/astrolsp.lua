@@ -134,14 +134,10 @@ return {
           desc = "Ruff fix all + organize imports (python)",
           callback = function(args)
             if vim.bo[args.buf].filetype ~= "python" then return end
-            local function apply_ruff_action(kind)
-              vim.lsp.buf.code_action {
-                context = { only = { kind } },
-                apply = true,
-              }
-            end
-            apply_ruff_action "source.fixAll.ruff"
-            apply_ruff_action "source.organizeImports.ruff"
+            vim.lsp.buf.code_action {
+              context = { only = { "source.fixAll.ruff" } },
+              apply = true,
+            }
           end,
         },
       },
