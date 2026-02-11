@@ -17,7 +17,7 @@
   home.packages = with pkgs; [
     #-- python
     pyright
-    python312Packages.flake8
+    ruff
 
     #-- nix
     nil

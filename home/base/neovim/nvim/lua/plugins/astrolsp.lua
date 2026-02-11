@@ -54,6 +54,7 @@ return {
       ---- Backend
       "lua_ls", -- lua
       "pyright", -- python
+      "ruff", -- python (lint/format/code actions)
       "nil_ls", -- nix language server
       ---- Operation & Cloud Nativautoindente
       "bashls", -- bash
@@ -72,6 +73,27 @@ return {
             formatting = {
               command = { "nixfmt" },
             },
+          },
+        },
+      },
+      pyright = {
+        settings = {
+          pyright = {
+            -- Ruff handles import organization.
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting.
+              ignore = { "*" },
+            },
+          },
+        },
+      },
+      ruff = {
+        init_options = {
+          settings = {
+            logLevel = "debug",
           },
         },
       },
@@ -103,6 +125,23 @@ return {
           desc = "Refresh codelens (buffer)",
           callback = function(args)
             if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
+          end,
+        },
+      },
+      ruff_fix_on_save = {
+        {
+          event = "BufWritePre",
+          desc = "Ruff fix all + organize imports (python)",
+          callback = function(args)
+            if vim.bo[args.buf].filetype ~= "python" then return end
+            local function apply_ruff_action(kind)
+              vim.lsp.buf.code_action {
+                context = { only = { kind } },
+                apply = true,
+              }
+            end
+            apply_ruff_action "source.fixAll.ruff"
+            apply_ruff_action "source.organizeImports.ruff"
           end,
         },
       },
