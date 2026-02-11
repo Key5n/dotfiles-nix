@@ -26,6 +26,7 @@
       "slack"
       "figma"
       "microsoft-edge"
+      "nordvpn"
       # "affinity"
     ];
   };
