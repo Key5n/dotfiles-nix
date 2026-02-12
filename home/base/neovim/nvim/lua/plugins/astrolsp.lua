@@ -33,6 +33,7 @@ return {
         "ts_ls",
         "vtsls",
         "jsonls",
+        "ruff",
       },
       timeout_ms = 5000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -125,19 +126,6 @@ return {
           desc = "Refresh codelens (buffer)",
           callback = function(args)
             if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
-          end,
-        },
-      },
-      ruff_fix_on_save = {
-        {
-          event = "BufWritePre",
-          desc = "Ruff fix all + organize imports (python)",
-          callback = function(args)
-            if vim.bo[args.buf].filetype ~= "python" then return end
-            vim.lsp.buf.code_action {
-              context = { only = { "source.fixAll.ruff" } },
-              apply = true,
-            }
           end,
         },
       },
