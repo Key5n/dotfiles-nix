@@ -132,6 +132,25 @@
               inherit user-name;
             };
           };
+
+          nixos-lab = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [
+              ./hosts/nixos-lab/configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = genSpecialArgs system // {
+                  inherit user-name;
+                };
+                home-manager.users.${user-name} = import ./home/wsl/home.nix;
+              }
+            ];
+            specialArgs = genSpecialArgs system // {
+              inherit user-name;
+            };
+          };
         };
 
       darwinConfigurations =

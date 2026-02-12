@@ -8,11 +8,8 @@ switch:
 
 [linux]
 switch:
-  if [[ -r /proc/sys/kernel/osrelease ]] && grep -qi microsoft /proc/sys/kernel/osrelease; then
-    just wsl
-  else
-    just nixos
-  fi
+  if [[ -r /proc/sys/kernel/osrelease ]] && grep -qi microsoft /proc/sys/kernel/osrelease; then just wsl; else just nixos; fi
+
 
 darwin:
   nix build .#darwinConfigurations.{{hostname}}.system --extra-experimental-features 'nix-command flakes' --show-trace
@@ -23,6 +20,9 @@ nixos:
 
 wsl:
   sudo nixos-rebuild switch --flake ~/dotfiles-nix#nixos-wsl
+
+lab:
+  sudo nixos-rebuild switch --flake ~/dotfiles-nix#nixos-lab
 
 test:
   sudo nixos-rebuild test --flake ~/dotfiles-nix#nixos-desktop

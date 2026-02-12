@@ -2,7 +2,6 @@
   pkgs,
   pkgs-unstable,
   lib,
-  user-name,
   ...
 }:
 {
@@ -34,7 +33,4 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];
-
-  programs.zsh.enable = true;
-  users.users.${user-name}.shell = pkgs.zsh;
 }
