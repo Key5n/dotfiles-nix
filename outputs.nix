@@ -25,6 +25,104 @@ let
         config.allowUnfree = true;
       };
     };
+
+  mkHomeManagerModule =
+    {
+      system,
+      userName,
+      homePath,
+    }:
+    {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.extraSpecialArgs = genSpecialArgs system // {
+        user-name = userName;
+      };
+      home-manager.users.${userName} = import homePath;
+    };
+
+  mkNixosConfig =
+    {
+      system,
+      userName,
+      hostPath,
+      homePath,
+    }:
+    nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        hostPath
+        home-manager.nixosModules.home-manager
+        (mkHomeManagerModule {
+          inherit system homePath;
+          userName = userName;
+        })
+      ];
+      specialArgs = genSpecialArgs system // {
+        user-name = userName;
+      };
+    };
+
+  mkDarwinConfig =
+    {
+      system,
+      userName,
+      hostName,
+      hostPath,
+      homePath,
+    }:
+    nix-darwin.lib.darwinSystem {
+      inherit system;
+      modules = [
+        hostPath
+        home-manager.darwinModules.home-manager
+        (mkHomeManagerModule {
+          inherit system homePath;
+          userName = userName;
+        })
+      ];
+      specialArgs = genSpecialArgs system // {
+        user-name = userName;
+        host-name = hostName;
+      };
+    };
+
+  nixosHosts = {
+    nixos-desktop = {
+      system = "x86_64-linux";
+      userName = "key5n";
+      hostPath = ./hosts/nixos-desktop/default.nix;
+      homePath = ./homes/nixos-desktop/default.nix;
+    };
+    nixos-subdesktop = {
+      system = "x86_64-linux";
+      userName = "key5n";
+      hostPath = ./hosts/nixos-subdesktop/default.nix;
+      homePath = ./homes/nixos-subdesktop/default.nix;
+    };
+    nixos-wsl = {
+      system = "x86_64-linux";
+      userName = "key5n";
+      hostPath = ./hosts/nixos-wsl/default.nix;
+      homePath = ./homes/nixos-wsl/default.nix;
+    };
+    nixos-lab = {
+      system = "x86_64-linux";
+      userName = "key5n";
+      hostPath = ./hosts/nixos-lab/default.nix;
+      homePath = ./homes/nixos-lab/default.nix;
+    };
+  };
+
+  darwinHosts = {
+    Key5n-MacBook-Pro = {
+      system = "aarch64-darwin";
+      userName = "key5n";
+      hostName = "Key5n-MacBook-Pro";
+      hostPath = ./hosts/Key5n-MacBook-Pro/default.nix;
+      homePath = ./homes/Key5n-MacBook-Pro/default.nix;
+    };
+  };
 in
 {
   # for `nix fmt`
@@ -34,113 +132,24 @@ in
     formatting = treefmtEval.${pkgs.system}.config.build.check self;
   });
 
-  nixosConfigurations =
-    let
-      system = "x86_64-linux";
-      user-name = "key5n";
-    in
-    {
-      nixos-desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/nixos-desktop/default.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = genSpecialArgs system // {
-              inherit user-name;
-            };
-            home-manager.users.${user-name} = import ./homes/nixos-desktop/default.nix;
-          }
-        ];
-        specialArgs = genSpecialArgs system // {
-          inherit user-name;
-        };
-      };
+  nixosConfigurations = nixpkgs.lib.mapAttrs (
+    _: host:
+    mkNixosConfig {
+      system = host.system;
+      userName = host.userName;
+      hostPath = host.hostPath;
+      homePath = host.homePath;
+    }
+  ) nixosHosts;
 
-      nixos-subdesktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/nixos-subdesktop/default.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs // {
-              inherit user-name;
-            };
-            home-manager.users.${user-name} = import ./homes/nixos-subdesktop/default.nix;
-          }
-        ];
-        specialArgs = genSpecialArgs system // {
-          inherit user-name;
-        };
-      };
-
-      nixos-wsl = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/nixos-wsl/default.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = genSpecialArgs system // {
-              inherit user-name;
-            };
-            home-manager.users.${user-name} = import ./homes/nixos-wsl/default.nix;
-          }
-        ];
-        specialArgs = genSpecialArgs system // {
-          inherit user-name;
-        };
-      };
-
-      nixos-lab = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/nixos-lab/default.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = genSpecialArgs system // {
-              inherit user-name;
-            };
-            home-manager.users.${user-name} = import ./homes/nixos-lab/default.nix;
-          }
-        ];
-        specialArgs = genSpecialArgs system // {
-          inherit user-name;
-        };
-      };
-    };
-
-  darwinConfigurations =
-    let
-      user-name = "key5n";
-      host-name = "Key5n-MacBook-Pro";
-      system = "aarch64-darwin";
-    in
-    {
-      ${host-name} = nix-darwin.lib.darwinSystem {
-        inherit system;
-        modules = [
-          ./hosts/Key5n-MacBook-Pro/default.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = genSpecialArgs system // {
-              inherit user-name;
-            };
-            home-manager.users."${user-name}" = import ./homes/Key5n-MacBook-Pro/default.nix;
-          }
-        ];
-        specialArgs = genSpecialArgs system // {
-          inherit user-name host-name;
-        };
-      };
-    };
+  darwinConfigurations = nixpkgs.lib.mapAttrs (
+    _: host:
+    mkDarwinConfig {
+      system = host.system;
+      userName = host.userName;
+      hostName = host.hostName;
+      hostPath = host.hostPath;
+      homePath = host.homePath;
+    }
+  ) darwinHosts;
 }
