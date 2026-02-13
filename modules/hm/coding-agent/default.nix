@@ -1,7 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs-unstable, config, ... }:
 {
   home.packages =
-    with pkgs;
+    with pkgs-unstable;
     [
       claude-code
       codex

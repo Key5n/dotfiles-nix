@@ -19,7 +19,7 @@ let
     system:
     inputs
     // {
-      pkgs-unstable = import inputs.nixpkgs-unstable {
+      pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         # To use claude code, we need to allow the installation of non-free software
         config.allowUnfree = true;
