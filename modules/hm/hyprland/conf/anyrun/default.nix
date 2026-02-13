@@ -1,6 +1,6 @@
 { anyrun, pkgs, ... }:
 let
-  theme = (import ../../../../../modules/base/colorscheme).theme;
+  theme = (import ../../../../base/colorscheme).theme;
 in
 {
   imports = [

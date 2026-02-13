@@ -3,10 +3,10 @@
 ## Project Structure & Module Organization
 
 - `flake.nix` defines the Nix flake entry points; `flake.lock` pins dependencies.
-- `hosts/` contains per-machine configs (e.g., `hosts/nixos-desktop/configuration.nix`, `hosts/darwin-macbook/configuration.nix`).
-- `modules/` holds reusable NixOS/nix-darwin modules (`modules/nixos/`, `modules/darwin/`, `modules/base/`).
-- `home/` contains Home Manager profiles and app configs (e.g., `home/base/`, `home/linux/`, `home/darwin/`).
-- Linux-specific configs (including UI assets) live under `home/linux/` (e.g., `home/linux/i3/`, `home/linux/hyprland/`).
+- `hosts/` contains per-machine configs (e.g., `hosts/nixos-desktop/default.nix`, `hosts/Key5n-MacBook-Pro/default.nix`).
+- `modules/` holds reusable NixOS/nix-darwin/Home Manager modules (`modules/nixos/`, `modules/darwin/`, `modules/base/`, `modules/hm/`).
+- `homes/` contains Home Manager entrypoints per host (e.g., `homes/nixos-desktop/default.nix`, `homes/Key5n-MacBook-Pro/default.nix`).
+- Linux-specific Home Manager configs (including UI assets) live under `modules/hm/` and `modules/hm/linux-utils/` (e.g., `modules/hm/i3/`, `modules/hm/hyprland/`, `modules/hm/linux-utils/`).
 
 ## Build, Test, and Development Commands
 

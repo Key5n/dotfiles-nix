@@ -7,7 +7,7 @@
 
   settings.global.excludes = [
     "flake.lock"
-    "home/linux/hyprland/conf/wallpaper/**"
+    "modules/hm/hyprland/conf/wallpaper/**"
     "**/*.png"
     "**/*.jpg"
     "**/*.jpeg"

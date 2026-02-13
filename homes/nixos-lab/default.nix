@@ -4,7 +4,6 @@
   user-name,
   ...
 }:
-
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -18,21 +17,11 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 
   imports = [
-    ../base
-    ./base
-    ./hyprland
+    ../../modules/hm
   ];
-
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
-  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -53,18 +42,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.vscode
-    pkgs.noto-fonts-cjk-sans
-    pkgs.nerd-fonts.fira-code
-    pkgs.discord
-    pkgs.slack
     pkgs.fastfetch
-    pkgs.psmisc
     pkgs.unzip
-    pkgs.zoom-us
   ];
-
-  programs.chromium.enable = true;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
@@ -79,27 +59,6 @@
   #
   home.sessionVariables = {
     # EDITOR = "vim";
-  };
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications =
-      let
-        browser = [ "firefox.desktop" ];
-        editor = [ "code.desktop" ];
-      in
-      {
-        "x-scheme-handler/http" = browser;
-        "x-scheme-handler/https" = browser;
-        "x-scheme-handler/chrome" = browser;
-        "text/html" = browser;
-        "application/x-extension-htm" = browser;
-        "application/x-extension-html" = browser;
-        "application/x-extension-shtml" = browser;
-        "application/xhtml+xml" = browser;
-        "application/x-extension-xhtml" = browser;
-        "application/x-extension-xht" = browser;
-      };
   };
 
   # Let Home Manager install and manage itself.
