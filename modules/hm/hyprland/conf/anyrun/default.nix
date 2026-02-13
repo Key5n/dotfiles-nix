@@ -1,6 +1,6 @@
-{ anyrun, pkgs, ... }:
+{ anyrun, config, pkgs, ... }:
 let
-  theme = (import ../../../../base/colorscheme).theme;
+  theme = config.colorscheme.theme;
 in
 {
   imports = [
@@ -30,11 +30,8 @@ in
 
     extraCss = ''
       @define-color fg ${theme.scheme.colors.fg};
-      /*
-        TODO: create a function transforms hex values to rgba
-        The value is bg of iceberg with opacity 0.8
-      */
-      @define-color bg rgba(22, 24, 33, 0.8);
+      /* TODO: add hex -> rgba conversion if transparency is desired. */
+      @define-color bg ${theme.scheme.colors.bg};
       @define-color border ${theme.scheme.modifier.selected};
       @define-color selected ${theme.scheme.modifier.selected};
 

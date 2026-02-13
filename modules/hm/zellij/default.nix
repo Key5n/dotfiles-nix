@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
-  theme = (import ../../../modules/base/colorscheme).theme;
+  theme = config.colorscheme.theme;
   shellAliases = {
     "zj" = "zellij";
   };
@@ -57,7 +57,7 @@ in
       themes.custom.magenta = theme.scheme.colors.magenta;
       themes.custom.cyan = theme.scheme.colors.cyan;
       themes.custom.white = theme.scheme.colors.white;
-      themes.custom.orange = theme.scheme.colors.green;
+      themes.custom.orange = theme.scheme.colors.orange;
       show_startup_tips = false;
       keybinds = {
         unbind = [ "Alt l" ];

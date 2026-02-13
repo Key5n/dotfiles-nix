@@ -1,6 +1,6 @@
-{ ... }:
+{ config, ... }:
 let
-  theme = (import ../../../modules/base/colorscheme).theme;
+  theme = config.colorscheme.theme;
 in
 {
   programs.alacritty = {

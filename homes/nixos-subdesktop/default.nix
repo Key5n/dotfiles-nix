@@ -27,6 +27,8 @@
     ../../modules/hm/pack/tui
   ];
 
+  colorscheme.name = "gruvbox-dark";
+
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [

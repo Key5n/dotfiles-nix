@@ -23,6 +23,8 @@
     ../../modules/hm/pack/tui
   ];
 
+  colorscheme.name = "catppuccin-mocha";
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [

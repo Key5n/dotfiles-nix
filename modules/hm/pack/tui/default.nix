@@ -6,6 +6,7 @@
   ];
 
   imports = [
+    ../../../base/colorscheme
     ../../c
     ../../coding-agent
     ../../container
