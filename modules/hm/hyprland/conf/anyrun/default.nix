@@ -1,4 +1,9 @@
-{ anyrun, config, pkgs, ... }:
+{
+  anyrun,
+  config,
+  pkgs,
+  ...
+}:
 let
   theme = config.colorscheme.theme;
 in

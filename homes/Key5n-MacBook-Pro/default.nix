@@ -83,8 +83,7 @@
     # EDITOR = "vim";
   };
 
-  programs.starship.settings =
-    builtins.fromTOML (builtins.readFile ./starship.toml);
+  programs.starship.settings = builtins.fromTOML (builtins.readFile ./starship.toml);
 
   programs.zsh = {
     initContent = ''
