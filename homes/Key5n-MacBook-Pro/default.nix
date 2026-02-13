@@ -81,6 +81,9 @@
     # EDITOR = "vim";
   };
 
+  programs.starship.settings =
+    builtins.fromTOML (builtins.readFile ./starship.toml);
+
   programs.zsh = {
     initContent = ''
       export PATH="/opt/homebrew/bin:$PATH"

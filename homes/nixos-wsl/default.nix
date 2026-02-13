@@ -61,6 +61,9 @@
     # EDITOR = "vim";
   };
 
+  programs.starship.settings =
+    builtins.fromTOML (builtins.readFile ./starship.toml);
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
