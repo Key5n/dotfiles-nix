@@ -61,12 +61,5 @@
   programs.zsh.enable = true;
   environment.shells = [
     pkgs.zsh
-    pkgs.nushell
   ];
-
-  programs.zsh.interactiveShellInit = ''
-    if [[ "$TERM" != "dumb" && -z "$ZSH_EXECUTION_STRING" ]]; then
-      exec nu
-    fi
-  '';
 }

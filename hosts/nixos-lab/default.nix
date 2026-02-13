@@ -87,10 +87,6 @@
     fira-code
   ];
 
-  environment.shells = [
-    pkgs.nushell
-  ];
-
   programs.bash.interactiveShellInit = ''
     if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
       exec nu
