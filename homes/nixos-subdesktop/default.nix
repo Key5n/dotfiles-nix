@@ -21,9 +21,10 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ../../modules/hm
-    ../../modules/hm/linux-utils
     ../../modules/hm/hyprland
+    ../../modules/hm/linux-utils
+    ../../modules/hm/pack/gui
+    ../../modules/hm/pack/tui
   ];
 
   i18n.inputMethod = {

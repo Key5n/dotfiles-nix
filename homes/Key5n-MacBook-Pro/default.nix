@@ -21,7 +21,8 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ../../modules/hm
+    ../../modules/hm/pack/gui
+    ../../modules/hm/pack/tui
   ];
 
   # The home.packages option allows you to install Nix packages into your
