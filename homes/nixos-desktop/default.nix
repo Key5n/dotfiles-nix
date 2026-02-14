@@ -28,6 +28,7 @@
   ];
 
   colorscheme.name = "tokyo-night";
+  programs.zellij.settings.theme = "dracula";
 
   i18n.inputMethod = {
     enabled = "fcitx5";

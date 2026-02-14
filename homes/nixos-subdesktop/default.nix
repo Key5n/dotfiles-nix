@@ -28,6 +28,7 @@
   ];
 
   colorscheme.name = "gruvbox-dark";
+  programs.zellij.settings.theme = "nightfox";
 
   i18n.inputMethod = {
     enabled = "fcitx5";

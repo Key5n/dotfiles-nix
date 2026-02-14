@@ -24,6 +24,7 @@
   ];
 
   colorscheme.name = "nord";
+  programs.zellij.settings.theme = "nord";
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

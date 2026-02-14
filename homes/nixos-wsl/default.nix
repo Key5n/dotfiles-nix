@@ -24,6 +24,7 @@
   ];
 
   colorscheme.name = "catppuccin-mocha";
+  programs.zellij.settings.theme = "catppuccin-frappe";
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
