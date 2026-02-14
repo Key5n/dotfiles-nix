@@ -16,6 +16,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos/misc.nix
     ../../modules/base/tailscale.nix
+    ../../modules/base/zsh.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -86,12 +87,6 @@
   fonts.packages = with pkgs; [
     fira-code
   ];
-
-  programs.bash.interactiveShellInit = ''
-    if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
-      exec nu
-    fi
-  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

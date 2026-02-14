@@ -57,9 +57,4 @@
     #   remapCapsLockToControl = true;  # remap caps lock to control
     # };
   };
-
-  programs.zsh.enable = true;
-  environment.shells = [
-    pkgs.zsh
-  ];
 }

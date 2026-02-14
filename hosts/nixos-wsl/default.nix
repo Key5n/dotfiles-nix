@@ -8,6 +8,7 @@
   imports = [
     nixos-wsl.nixosModules.default
     ../../modules/base/secrets.nix
+    ../../modules/base/zsh.nix
   ];
 
   wsl = {
