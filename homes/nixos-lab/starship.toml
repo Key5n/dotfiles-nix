@@ -7,6 +7,7 @@ $username\
 [](bg:#DA627D fg:#9A348E)\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
+${custom.git_repo}\
 $git_branch\
 $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
@@ -99,6 +100,32 @@ format = '[ $symbol $branch ]($style)'
 [git_status]
 style = "bg:#FCA17D"
 format = '[$all_status$ahead_behind ]($style)'
+
+[custom.git_repo]
+when = "git rev-parse --is-inside-work-tree 2>/dev/null"
+command = """
+sh -c '
+  # Read origin URL, fall back to upstream when origin is missing.
+  url=$(git config --get remote.origin.url 2>/dev/null)
+  [ -z "$url" ] && url=$(git config --get remote.upstream.url 2>/dev/null)
+  # Exit quietly if no remote is configured.
+  [ -z "$url" ] && exit 1
+  # Drop "git@" user prefix for SSH remotes.
+  tmp=${url#*@}
+  # Drop scheme for HTTPS/SSH URLs.
+  tmp=${tmp#*://}
+  # Normalize "host:owner/repo" into "host/owner/repo".
+  tmp=${tmp/:/\\/}
+  # Remove the host portion, keep "owner/repo".
+  tmp=${tmp#*/}
+  # Strip the trailing ".git" suffix.
+  name=${tmp%.git}
+  # Print without a trailing newline for Starship.
+  printf %s "$name"
+'
+"""
+style = "bg:#FCA17D"
+format = '[ $output ]($style)'
 
 [golang]
 symbol = " "
