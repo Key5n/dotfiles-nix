@@ -44,8 +44,8 @@ in
       };
     };
 
-    settings = lib.mkDefault {
-      theme = "default";
+    settings = {
+      theme = lib.mkDefault "default";
       show_startup_tips = false;
       keybinds = {
         unbind = [ "Alt l" ];
