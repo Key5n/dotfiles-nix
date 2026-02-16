@@ -14,7 +14,7 @@
     ../../modules/darwin/apps.nix
     ../../modules/darwin/system.nix
     ../../modules/base/secrets.nix
-    ../../moduels/base/zsh.nix
+    ../../modules/base/zsh.nix
   ];
 
   # determinate system with nix darwin
