@@ -15,6 +15,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/nixos/misc.nix
+    ../../modules/nixos/docker.nix
     ../../modules/base/tailscale.nix
     ../../modules/base/zsh.nix
   ];
