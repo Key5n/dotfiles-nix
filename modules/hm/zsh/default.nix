@@ -23,8 +23,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "marlonrichert";
           repo = "zsh-autocomplete";
-          rev = "23.07.13";
-          sha256 = "0NW0TI//qFpUA2Hdx6NaYdQIIUpRSd0Y4NhwBbdssCs=";
+          rev = "25.03.19";
+          sha256 = "sha256-eb5a5WMQi8arZRZDt4aX1IV+ik6Iee3OxNMCiMnjIx4=";
         };
       }
     ];
