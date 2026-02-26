@@ -40,7 +40,7 @@
     ];
   };
 
-  fileSystems."/mnt/object-storage" = {
+  fileSystems."/mnt/external-hdd-5tb" = {
     device = "/dev/disk/by-uuid/c939203d-ed40-4ed5-868d-9935559667c7";
     fsType = "ext4";
   };
