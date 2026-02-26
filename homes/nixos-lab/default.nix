@@ -21,6 +21,7 @@
 
   imports = [
     ../../modules/hm/pack/tui
+    ../../modules/hm/pack/gui
   ];
 
   colorscheme.name = "nord";
