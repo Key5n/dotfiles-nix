@@ -1,4 +1,9 @@
-{ pkgs-unstable, config, ... }:
+{
+  pkgs-unstable,
+  config,
+  lib,
+  ...
+}:
 {
   home.packages =
     with pkgs-unstable;
@@ -15,21 +20,17 @@
     executable = true;
   };
 
-  # Configure Codex to invoke the notifier script.
-  home.file.".codex/config.toml" = {
-    text = ''
-      model = "gpt-5.2-codex"
-      notify = ["python3", "${config.home.homeDirectory}/.codex/notify.py"]
-      model_reasoning_effort = "high"
-
-      approval_policy = "on-request"
-      sandbox_mode = "workspace-write"
-
-      [features]
-      web_search_request = true
-    '';
-    force = true;
-  };
+  # Remove any existing Codex config, then recreate with notifier settings.
+  home.activation.installCodexConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    codex_config="${config.home.homeDirectory}/.codex/config.toml"
+    if [ -e "$codex_config" ]; then
+      rm -f "$codex_config"
+    fi
+    mkdir -p "${config.home.homeDirectory}/.codex"
+    cat > "$codex_config" <<'EOF'
+    notify = ["python3", "${config.home.homeDirectory}/.codex/notify.py"]
+    EOF
+  '';
 
   home.file.".codex/prompts".source = ./prompts;
 }
