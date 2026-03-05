@@ -7,6 +7,21 @@
 with lib;
 let
   zsh_cfg = config.programs.zsh;
+  git-flake = pkgs.writeShellScriptBin "git-flake" ''
+    set -euo pipefail
+
+    target_path="''${1:-./flake.nix}"
+    target_dir="$(dirname "$target_path")"
+    lock_path="$target_dir/flake.lock"
+
+    git add --intent-to-add "$target_path"
+    git update-index --skip-worktree --assume-unchanged "$target_path"
+
+    if [ -f "$lock_path" ]; then
+      git add --intent-to-add "$lock_path"
+      git update-index --skip-worktree --assume-unchanged "$lock_path"
+    fi
+  '';
   shellAliases = {
     lag = "lazygit";
   };
@@ -18,6 +33,7 @@ in
     home.packages = with pkgs; [
       delta
       gh
+      git-flake
     ];
 
     programs.git = {
