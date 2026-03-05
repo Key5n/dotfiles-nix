@@ -26,7 +26,7 @@
   ];
 
   colorscheme.name = "iceberg";
-  programs.zellij.settings.theme = "tokyo-night";
+  programs.zellij.settings.theme = "iceberg-dark";
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
