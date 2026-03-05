@@ -4,6 +4,16 @@
   lib,
   ...
 }:
+let
+  git-local = pkgs.writeShellScriptBin "git-local" ''
+    set -euo pipefail
+
+    target_path="''${1:-./flake.nix}"
+
+    git add --intent-to-add "$target_path"
+    git update-index --skip-worktree --assume-unchanged "$target_path"
+  '';
+in
 {
 
   # Allow unfree packages
@@ -32,5 +42,6 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    git-local
   ];
 }
