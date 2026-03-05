@@ -29,8 +29,6 @@
     mkdir -p "${config.home.homeDirectory}/.codex"
     cat > "$codex_config" <<'EOF'
     notify = ["python3", "${config.home.homeDirectory}/.codex/notify.py"]
-    approval_policy = "never"
-    sandbox_mode = "workspace-write"
     EOF
   '';
 
