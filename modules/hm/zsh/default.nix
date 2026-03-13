@@ -21,6 +21,7 @@ in
       {
         name = "zsh-autocomplete";
         src = pkgs.zsh-autocomplete;
+        file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
       }
     ];
 
