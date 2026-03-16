@@ -7,5 +7,6 @@
   imports = [
     ../../alacritty
     ../../kitty/default.nix
+    ../../slackdump
   ];
 }
