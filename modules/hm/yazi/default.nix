@@ -3,6 +3,8 @@
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    # home.stateVersion が 2026 より前の場合に Warning が出るため
+    shellWrapperName = "y";
   };
 
   # https://yazi-rs.github.io/docs/installation
