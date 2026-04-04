@@ -8,7 +8,7 @@ If commit message ($MESSAGE) is provided, use it; otherwise craft a concise comm
 
 Requirements:
 
-- Stage every file with `git add -A`, but do not stage any Markdown file whose name starts with "plan" (e.g., `plan.md`, `plan-foo.md`).
+- Stage only the files relevant to the current task; do not include unrelated changes.
 - If there are no changes to commit, say so and stop.
 - If commit failed because of linting or formatting in "pre-commit", fix errors then commit.
 - Follow the repo's commit style: concise, imperative subject, scope when helpful, no trailing period.

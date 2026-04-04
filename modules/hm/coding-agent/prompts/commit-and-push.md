@@ -9,7 +9,7 @@ Use `git push` with no arguments.
 
 Requirements:
 
-- Stage only the files relevant to the current task; do not include unrelated changes. Do not stage any Markdown file whose name starts with "plan" (e.g., `plan.md`, `plan-foo.md`).
+- Stage only the files relevant to the current task; do not include unrelated changes.
 - If there are no changes to commit, say so and stop.
 - Follow the repo's commit style: concise, imperative subject, scope when helpful, no trailing period.
 - Prefer Conventional Commit prefixes (e.g., feat, fix, chore, docs, refactor, test, perf, ci, build) when they fit.
