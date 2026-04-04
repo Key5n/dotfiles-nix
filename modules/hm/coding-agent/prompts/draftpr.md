@@ -9,11 +9,12 @@ Use the outline below, but adapt it as needed.
 
 - If the repository has a Pull Request template, use it as the base.
 - If there are no commits on the current branch, commit the working tree with a concise title.
-- Use the commit message as the Pull Request title, and write the title in Japanese.
+- Use the commit message as the Pull Request title, and write the title in Japanese with 体言止め.
 - If no remote branch exists, run `git push`.
 - Include enough detail to describe the changes clearly.
 - Maintain a professional tone.
 - Write the Pull Request in Japanese.
+- Write Japanese list items in the Pull Request body with 体言止め.
 
 ## Recommended Sections
 
