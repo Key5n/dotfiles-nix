@@ -1,0 +1,155 @@
+layout {
+    default_tab_template {
+      // the default zellij tab-bar and status bar plugins
+      pane size=1 borderless=true {
+          plugin location="zellij:tab-bar"
+      }
+      children
+      pane size=1 borderless=true {
+          plugin location="zellij:status-bar"
+      }
+    }
+  tab name="w0" cwd="w0" {
+    pane split_direction="vertical" {
+      pane command="codex"
+      pane command="codex"
+      pane split_direction="horizontal" {
+        pane command="npm" {
+          args "run" "dev"
+        }
+        pane command="docker" {
+          args "compose" "up" "session-database"
+        }
+      }
+    }
+  }
+  tab name="w1" cwd="w1" {
+    pane split_direction="vertical" {
+      pane command="codex"
+      pane command="codex"
+      pane split_direction="horizontal" {
+        pane command="npm" {
+          args "run" "dev"
+        }
+        pane command="docker" {
+          args "compose" "up" "session-database"
+        }
+      }
+    }
+  }
+  tab name="w2" cwd="w2" {
+    pane split_direction="vertical" {
+      pane command="codex"
+      pane command="codex"
+      pane split_direction="horizontal" {
+        pane command="npm" {
+          args "run" "dev"
+        }
+        pane command="docker" {
+          args "compose" "up" "session-database"
+        }
+      }
+    }
+  }
+  tab name="w3" cwd="w3" {
+    pane split_direction="vertical" {
+      pane command="codex"
+      pane command="codex"
+      pane split_direction="horizontal" {
+        pane command="npm" {
+          args "run" "dev"
+        }
+        pane command="docker" {
+          args "compose" "up" "session-database"
+        }
+      }
+    }
+  }
+  tab name="w4" cwd="w4" {
+    pane split_direction="vertical" {
+      pane command="codex"
+      pane command="codex"
+      pane split_direction="horizontal" {
+        pane command="npm" {
+          args "run" "dev"
+        }
+        pane command="docker" {
+          args "compose" "up" "session-database"
+        }
+      }
+    }
+  }
+  tab name="w5" cwd="w5" {
+    pane split_direction="vertical" {
+      pane command="codex"
+      pane command="codex"
+      pane split_direction="horizontal" {
+        pane command="npm" {
+          args "run" "dev"
+        }
+        pane command="docker" {
+          args "compose" "up" "session-database"
+        }
+      }
+    }
+  }
+  // tab name="w6" cwd="w6" {
+  //   pane split_direction="vertical" {
+  //     pane command="codex"
+  //     pane command="codex"
+  //     pane split_direction="horizontal" {
+  //       pane command="npm" {
+  //         args "run" "dev"
+  //       }
+  //       pane command="docker" {
+  //         args "compose" "up" "session-database"
+  //       }
+  //     }
+  //   }
+  // }
+  // tab name="w7" cwd="w7" {
+  //   pane split_direction="vertical" {
+  //     pane command="codex"
+  //     pane command="codex"
+  //     pane split_direction="horizontal" {
+  //       pane command="npm" {
+  //         args "run" "dev"
+  //       }
+  //       pane command="docker" {
+  //         args "compose" "up" "session-database"
+  //       }
+  //     }
+  //   }
+  // }
+  // tab name="w8" cwd="w8" {
+  //   pane split_direction="vertical" {
+  //     pane command="codex"
+  //     pane command="codex"
+  //     pane split_direction="horizontal" {
+  //       pane command="npm" {
+  //         args "run" "dev"
+  //       }
+  //       pane command="docker" {
+  //         args "compose" "up" "session-database"
+  //       }
+  //     }
+  //   }
+  // }
+  // tab name="w9" cwd="w9" {
+  //   pane split_direction="vertical" {
+  //     pane command="codex"
+  //     pane command="codex"
+  //     pane split_direction="horizontal" {
+  //       pane command="npm" {
+  //         args "run" "dev"
+  //       }
+  //       pane command="docker" {
+  //         args "compose" "up" "session-database"
+  //       }
+  //     }
+  //   }
+  // }
+  tab name="pyrroline-nest-server" cwd="~/dev/pyrroline-nest-server" {
+    pane
+  }
+}

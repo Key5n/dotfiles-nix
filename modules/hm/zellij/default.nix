@@ -5,44 +5,15 @@ let
   };
 in
 {
+  xdg.configFile = {
+    "zellij/layouts/nitechbb-web.kdl".source = ./nitechbb-web.kdl;
+    "zellij/layouts/lazygit.kdl".source = ./lazygit.kdl;
+  };
+
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-
-    layouts = {
-      codex-3-horizontal = {
-        layout = {
-          _children = [
-            {
-              tab = {
-                _props = {
-                  name = "codex";
-                  split_direction = "horizontal";
-                };
-                _children = [
-                  {
-                    pane = {
-                      command = "codex";
-                    };
-                  }
-                  {
-                    pane = {
-                      command = "codex";
-                    };
-                  }
-                  {
-                    pane = {
-                      command = "codex";
-                    };
-                  }
-                ];
-              };
-            }
-          ];
-        };
-      };
-    };
 
     settings = {
       theme = lib.mkDefault "default";
