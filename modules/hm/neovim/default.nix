@@ -24,7 +24,7 @@
     nixfmt
 
     #-- bash
-    bash-language-server
+    nodePackages.bash-language-server
     shellcheck
     shfmt
 
@@ -37,12 +37,12 @@
     texlab
 
     #-- javascript/typescript
-    typescript-language-server
-    vscode-langservers-extracted
-    tailwindcss-language-server
+    nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
+    nodePackages."@tailwindcss/language-server"
 
-    yaml-language-server
-    # prettier
+    nodePackages.yaml-language-server
+    # nodePackages.prettier
     prettierd
     marksman
     glow
