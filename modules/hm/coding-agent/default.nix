@@ -33,4 +33,8 @@
   '';
 
   home.file.".codex/prompts".source = ./prompts;
+
+  imports = [
+    ./skills/pdf
+  ];
 }
