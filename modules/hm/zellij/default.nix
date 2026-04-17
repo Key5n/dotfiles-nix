@@ -11,37 +11,7 @@ in
     enableBashIntegration = true;
 
     layouts = {
-      codex-3-horizontal = {
-        layout = {
-          _children = [
-            {
-              tab = {
-                _props = {
-                  name = "codex";
-                  split_direction = "horizontal";
-                };
-                _children = [
-                  {
-                    pane = {
-                      command = "codex";
-                    };
-                  }
-                  {
-                    pane = {
-                      command = "codex";
-                    };
-                  }
-                  {
-                    pane = {
-                      command = "codex";
-                    };
-                  }
-                ];
-              };
-            }
-          ];
-        };
-      };
+      codex = builtins.readFile ./codex-layout.kdl;
     };
 
     settings = {
