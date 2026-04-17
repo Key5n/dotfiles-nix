@@ -11,7 +11,8 @@ in
     enableBashIntegration = true;
 
     layouts = {
-      codex = builtins.readFile ./codex-layout.kdl;
+      codex = builtins.readFile ./codex.kdl;
+      edit = builtins.readFile ./edit.kdl;
     };
 
     settings = {

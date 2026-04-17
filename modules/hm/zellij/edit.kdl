@@ -1,0 +1,26 @@
+layout {
+  default_tab_template {
+    pane size=1 borderless=true {
+      plugin location="zellij:tab-bar"
+    }
+    children
+    pane size=1 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+  tab name="w0" cwd="w0" {
+    pane command="nvim"
+  }
+  tab name="w1" cwd="w1" {
+    pane command="nvim"
+  }
+  tab name="w2" cwd="w2" {
+    pane command="nvim"
+  }
+  tab name="w3" cwd="w3" {
+    pane command="nvim"
+  }
+  tab name="w4" cwd="w4" {
+    pane command="nvim"
+  }
+}
