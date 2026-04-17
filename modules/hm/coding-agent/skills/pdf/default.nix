@@ -16,9 +16,9 @@ in
 {
   home.packages = with pkgs; [
     popplerUtilsBinOnly
-    python313Packages.pypdf
-    python313Packages.reportlab
-    python313Packages.pdfplumber
+    python314Packages.pypdf
+    python314Packages.reportlab
+    python314Packages.pdfplumber
   ];
 
   home.file.".codex/skills/pdf".source = ../pdf;
