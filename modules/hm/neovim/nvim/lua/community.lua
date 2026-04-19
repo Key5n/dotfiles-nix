@@ -6,5 +6,8 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
-  -- import/override with your plugins folder
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.ruff" },
+  { import = "astrocommunity.colorscheme.iceberg-vim" },
+  { import = "astrocommunity.completion.copilot-lua" },
 }

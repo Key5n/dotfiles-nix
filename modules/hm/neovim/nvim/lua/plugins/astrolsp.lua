@@ -66,7 +66,28 @@ return {
     -- customize language server configuration passed to `vim.lsp.config`
     -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
-      -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
+      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      pyright = {
+        settings = {
+          pyright = {
+            -- Ruff handles import organization.
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting.
+              ignore = { "*" },
+            },
+          },
+        },
+      },
+      ruff = {
+        init_options = {
+          settings = {
+            logLevel = "debug",
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
