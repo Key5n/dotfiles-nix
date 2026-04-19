@@ -16,7 +16,6 @@
     ../../latex
     ../../neovim
     ../../node
-    ../../nushell
     ../../python
     ../../starship
     ../../yazi
