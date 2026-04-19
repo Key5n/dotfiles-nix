@@ -2,38 +2,25 @@
 
 ---@type LazySpec
 return {
-  -- use mason-lspconfig to configure LSP installations
+  -- use mason-tool-installer for automatically installing Mason packages
   {
-    "williamboman/mason-lspconfig.nvim",
-    -- mason is unusable on NixOS, disable it.
-    -- ensure_installed nothing
-    opts = function(_, opts)
-      opts.ensure_installed = nil
-      opts.automatic_installation = false
-    end,
-    -- overrides `require("mason-lspconfig").setup(...)`
-    -- opts = {
-    --   ensure_installed = {
-    --     "lua_ls",
-    --     -- add more arguments for adding more language servers
-    --   },
-    -- },
-  },
-  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
-    opts = function(_, opts)
-      opts.ensure_installed = nil
-      opts.automatic_installation = false
-    end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
-    opts = function(_, opts)
-      opts.ensure_installed = nil
-      opts.automatic_installation = false
-    end,
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- overrides `require("mason-tool-installer").setup(...)`
+    opts = {
+      -- Make sure to use the names found in `:Mason`
+      ensure_installed = {
+        -- install language servers
+        "lua-language-server",
+
+        -- install formatters
+        "stylua",
+
+        -- install debuggers
+        "debugpy",
+
+        -- install any other package
+        "tree-sitter-cli",
+      },
+    },
   },
 }

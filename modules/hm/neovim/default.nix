@@ -4,7 +4,14 @@
   config,
   ...
 }:
+let
+  # the path to nvim directory
+  # to make this symlink work, we need to git clone this repo to your home directory.
+  configPath = "${config.home.homeDirectory}/dotfiles-nix/modules/hm/neovim/nvim";
+in
 {
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink configPath;
+
   programs.neovim = {
     enable = true;
 
@@ -12,6 +19,7 @@
     viAlias = true;
     vimAlias = true;
 
+    sideloadInitLua = true;
   };
 
   home.packages = with pkgs; [
@@ -55,10 +63,6 @@
     bottom
     fd
   ];
-
-  home.activation.installAstroNvim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F744 ${./nvim}/ ${config.xdg.configHome}/nvim/
-  '';
 
   home.activation.installJuliaLanguageServer = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ${pkgs.julia-bin}/bin/julia --project=~/.julia/environments/nvim-lspconfig  \
