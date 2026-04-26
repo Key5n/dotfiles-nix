@@ -139,6 +139,17 @@ def parse_event(raw_payload: str) -> tuple[str, dict | None]:
     return event, notification
 
 
+def message_with_cwd(message: str, notification: dict | None) -> str:
+    if not isinstance(notification, dict):
+        return message
+
+    cwd = notification.get("cwd")
+    if not isinstance(cwd, str) or not cwd:
+        return message
+
+    return f"{message}\nCWD: {cwd}"
+
+
 def main() -> int:
     raw_payload = read_payload()
     if not raw_payload and len(sys.argv) > 1 and sys.argv[1].startswith("{"):
@@ -151,7 +162,7 @@ def main() -> int:
         return 0
 
     title = config["title"]
-    message = config["message"]
+    message = message_with_cwd(config["message"], notification)
     group = config["group"]
 
     if is_darwin():
