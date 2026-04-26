@@ -8,6 +8,7 @@
 
     masApps = {
       # Office apps should be installed manually
+      nordvpn = 905953485;
     };
 
     onActivation = {
@@ -15,6 +16,11 @@
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
     };
+
+    # `brew install`
+    brews = [
+      "mas"
+    ];
 
     # `brew install --cask`
     casks = [
@@ -26,7 +32,6 @@
       "slack"
       "figma"
       "microsoft-edge"
-      "nordvpn"
       # "affinity"
     ];
   };
