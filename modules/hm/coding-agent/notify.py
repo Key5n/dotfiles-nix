@@ -8,6 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+CODEX_ICON = Path(__file__).with_name("codex.svg")
+
 NOTIFICATIONS = {
     "PermissionRequest": {
         "title": "Codex needs approval",
@@ -30,19 +32,30 @@ def is_darwin() -> bool:
     return sys.platform == "darwin"
 
 
+def icon_path() -> str | None:
+    if CODEX_ICON.is_file():
+        return str(CODEX_ICON)
+    return None
+
+
 def notify_terminal_notifier(title: str, message: str, group: str) -> None:
+    command = [
+        "terminal-notifier",
+        "-title",
+        title,
+        "-message",
+        message,
+        "-group",
+        "codex-" + group,
+        "-activate",
+        "com.googlecode.iterm2",
+    ]
+    icon = icon_path()
+    if icon:
+        command.extend(["-appIcon", icon])
+
     subprocess.run(
-        [
-            "terminal-notifier",
-            "-title",
-            title,
-            "-message",
-            message,
-            "-group",
-            "codex-" + group,
-            "-activate",
-            "com.googlecode.iterm2",
-        ],
+        command,
         check=False,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
@@ -74,16 +87,20 @@ def notify_wsl_powershell(title: str, message: str) -> None:
 
 
 def notify_linux(title: str, message: str, group: str) -> None:
+    command = [
+        "notify-send",
+        "-a",
+        "Codex",
+        "-h",
+        f"string:x-canonical-private-synchronous:codex-{group}",
+    ]
+    icon = icon_path()
+    if icon:
+        command.extend(["-i", icon])
+    command.extend([title, message])
+
     subprocess.run(
-        [
-            "notify-send",
-            "-a",
-            "Codex",
-            "-h",
-            f"string:x-canonical-private-synchronous:codex-{group}",
-            title,
-            message,
-        ],
+        command,
         check=False,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,

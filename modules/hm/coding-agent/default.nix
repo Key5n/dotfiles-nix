@@ -22,6 +22,7 @@ in
     source = ./notify.py;
     executable = true;
   };
+  home.file.".codex/codex.svg".source = ./codex.svg;
 
   # Remove any existing Codex config, then recreate with hook settings.
   home.activation.installCodexConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
