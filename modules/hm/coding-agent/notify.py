@@ -8,6 +8,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+NOTIFICATIONS = {
+    "PermissionRequest": {
+        "title": "Codex needs approval",
+        "message": "Review the permission request in your terminal.",
+        "group": "permission-request",
+    },
+    "Stop": {
+        "title": "Codex turn complete",
+        "message": "The current Codex response has finished.",
+        "group": "stop",
+    },
+}
+
+
 def is_wsl() -> bool:
     return "microsoft" in platform.uname().release.lower()
 
@@ -16,8 +30,8 @@ def is_darwin() -> bool:
     return sys.platform == "darwin"
 
 
-def notify_terminal_notifier(title: str, message: str, thread_id: str) -> None:
-    subprocess.check_output(
+def notify_terminal_notifier(title: str, message: str, group: str) -> None:
+    subprocess.run(
         [
             "terminal-notifier",
             "-title",
@@ -25,10 +39,13 @@ def notify_terminal_notifier(title: str, message: str, thread_id: str) -> None:
             "-message",
             message,
             "-group",
-            "codex-" + thread_id,
+            "codex-" + group,
             "-activate",
             "com.googlecode.iterm2",
-        ]
+        ],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
 
 
@@ -48,15 +65,38 @@ def notify_wsl_powershell(title: str, message: str) -> None:
     $n.Dispose()
     """
 
-    subprocess.check_output(["powershell.exe", "-NoProfile", "-Command", script])
+    subprocess.run(
+        ["powershell.exe", "-NoProfile", "-Command", script],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
 
 
-def record_request(notification: dict, raw_payload: str) -> None:
+def notify_linux(title: str, message: str, group: str) -> None:
+    subprocess.run(
+        [
+            "notify-send",
+            "-a",
+            "Codex",
+            "-h",
+            f"string:x-canonical-private-synchronous:codex-{group}",
+            title,
+            message,
+        ],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+
+
+def record_request(event: str, notification: dict | None, raw_payload: str) -> None:
     log_path = Path.home() / ".codex" / "notify.log"
     try:
         log_path.parent.mkdir(parents=True, exist_ok=True)
         entry = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
+            "event": event,
             "notification": notification,
             "raw": raw_payload,
         }
@@ -67,26 +107,62 @@ def record_request(notification: dict, raw_payload: str) -> None:
         pass
 
 
-def main() -> int:
-    # Now record the request for auditing/debugging purposes
-    raw_payload = sys.argv[1]
-    notification = json.loads(raw_payload)
-    record_request(notification, raw_payload)
+def read_payload() -> str:
+    if sys.stdin.isatty():
+        return ""
+    return sys.stdin.read()
 
-    if notification.get("type") != "agent-turn-complete":
+
+def parse_event(raw_payload: str) -> tuple[str, dict | None]:
+    notification = None
+    event = sys.argv[1] if len(sys.argv) > 1 else ""
+
+    if event == "PermissionRequst":
+        event = "PermissionRequest"
+
+    if raw_payload:
+        try:
+            notification = json.loads(raw_payload)
+        except json.JSONDecodeError:
+            notification = None
+
+    if event.startswith("{"):
+        try:
+            notification = json.loads(event)
+        except json.JSONDecodeError:
+            notification = None
+        event = ""
+
+    if not event and notification and notification.get("type") == "agent-turn-complete":
+        event = "Stop"
+
+    return event, notification
+
+
+def main() -> int:
+    raw_payload = read_payload()
+    if not raw_payload and len(sys.argv) > 1 and sys.argv[1].startswith("{"):
+        raw_payload = sys.argv[1]
+    event, notification = parse_event(raw_payload)
+    record_request(event, notification, raw_payload)
+
+    config = NOTIFICATIONS.get(event)
+    if not config:
         return 0
-    title = f"Codex: {notification.get('last-assistant-message', 'Turn Complete!')}"
-    message = " ".join(notification.get("input-messages", []))
-    thread_id = notification.get("thread-id", "")
+
+    title = config["title"]
+    message = config["message"]
+    group = config["group"]
 
     if is_darwin():
-        notify_terminal_notifier(title, message, thread_id)
+        notify_terminal_notifier(title, message, group)
         return 0
 
     if is_wsl():
         notify_wsl_powershell(title, message)
         return 0
 
+    notify_linux(title, message, group)
     return 0
 
 

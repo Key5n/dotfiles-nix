@@ -4,23 +4,26 @@
   lib,
   ...
 }:
+let
+  notifyScript = "${config.home.homeDirectory}/.codex/notify.py";
+in
 {
   home.packages =
     with pkgs-unstable;
     [
       claude-code
-      codex
       gemini-cli
     ]
-    ++ lib.optional stdenv.isDarwin terminal-notifier;
+    ++ lib.optional stdenv.isDarwin terminal-notifier
+    ++ lib.optional (!stdenv.isDarwin) libnotify;
 
-  # Script used by Codex event notifications (installed to ~/.config/codex/notify.py).
+  # Script used by Codex event notifications (installed to ~/.codex/notify.py).
   home.file.".codex/notify.py" = {
     source = ./notify.py;
     executable = true;
   };
 
-  # Remove any existing Codex config, then recreate with notifier settings.
+  # Remove any existing Codex config, then recreate with hook settings.
   home.activation.installCodexConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     codex_config="${config.home.homeDirectory}/.codex/config.toml"
     if [ -e "$codex_config" ]; then
@@ -28,7 +31,18 @@
     fi
     mkdir -p "${config.home.homeDirectory}/.codex"
     cat > "$codex_config" <<'EOF'
-    notify = ["python3", "${config.home.homeDirectory}/.codex/notify.py"]
+    [features]
+    codex_hooks = true
+
+    [[hooks.PermissionRequest]]
+    [[hooks.PermissionRequest.hooks]]
+    type = "command"
+    command = 'python3 "${notifyScript}" PermissionRequest'
+
+    [[hooks.Stop]]
+    [[hooks.Stop.hooks]]
+    type = "command"
+    command = 'python3 "${notifyScript}" Stop'
     EOF
   '';
 
