@@ -10,4 +10,5 @@ return {
   { import = "astrocommunity.pack.python.ruff" },
   { import = "astrocommunity.colorscheme.iceberg-vim" },
   { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.markdown-and-latex.vimtex" },
 }
