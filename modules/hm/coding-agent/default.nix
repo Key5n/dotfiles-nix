@@ -13,6 +13,7 @@ in
     [
       claude-code
       gemini-cli
+      codex
     ]
     ++ lib.optional stdenv.isDarwin terminal-notifier
     ++ lib.optional (!stdenv.isDarwin) libnotify;
@@ -33,7 +34,7 @@ in
     mkdir -p "${config.home.homeDirectory}/.codex"
     cat > "$codex_config" <<'EOF'
     [features]
-    codex_hooks = true
+    hooks = true
 
     [[hooks.PermissionRequest]]
     [[hooks.PermissionRequest.hooks]]
