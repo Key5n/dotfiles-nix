@@ -4,6 +4,12 @@
 
 local is_ssh_session = vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil
 
+vim.opt.autoread = true
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  command = "checktime",
+})
+
 if is_ssh_session then
   local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 
