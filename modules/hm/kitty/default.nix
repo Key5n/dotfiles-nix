@@ -8,6 +8,7 @@
       background_opacity = "0.9";
       macos_option_as_alt = true;
       hide_window_decorations = "titlebar-only";
+      tab_bar_edge = "top";
     };
   };
 }
