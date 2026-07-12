@@ -9,18 +9,18 @@ layout {
     }
   }
   tab name="w0" cwd="w0" {
-    pane command="nvim"
+    pane command="lazygit"
   }
   tab name="w1" cwd="w1" {
-    pane command="nvim"
+    pane command="lazygit"
   }
   tab name="w2" cwd="w2" {
-    pane command="nvim"
+    pane command="lazygit"
   }
   tab name="w3" cwd="w3" {
-    pane command="nvim"
+    pane command="lazygit"
   }
   tab name="w4" cwd="w4" {
-    pane command="nvim"
+    pane command="lazygit"
   }
 }
