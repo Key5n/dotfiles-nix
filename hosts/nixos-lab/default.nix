@@ -74,6 +74,8 @@
     ];
   };
 
+  programs.nix-ld.enable = true;
+
   # programs.firefox.enable = true;
 
   # List packages installed in system profile.
