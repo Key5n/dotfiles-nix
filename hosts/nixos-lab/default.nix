@@ -30,7 +30,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Asia/Tokyo";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
