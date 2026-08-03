@@ -36,6 +36,9 @@ in
     [features]
     hooks = true
 
+    [sandbox_workspace_write]
+    network_access = true
+
     [[hooks.PermissionRequest]]
     [[hooks.PermissionRequest.hooks]]
     type = "command"
