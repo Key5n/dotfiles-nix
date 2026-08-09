@@ -55,5 +55,6 @@ in
 
   imports = [
     ./skills/pdf
+    ./skills/gh-stack
   ];
 }
