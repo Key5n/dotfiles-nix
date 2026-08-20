@@ -81,9 +81,9 @@ in
         refresher = {
           refreshInterval = 1;
         };
-        git.pagers = [
+        git.diffRenderers = [
           {
-            pager = "delta --paging=never";
+            command = "delta --paging=never";
           }
         ];
         promptToReturnFromSubprocess = false;

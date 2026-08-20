@@ -9,11 +9,11 @@
       texliveFull
       newcomputermodern
     ]
-    ++ (pkgs.lib.optionals pkgs.stdenv.isLinux [
+    ++ (pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       zathura
     ])
     # install skim in darwin
-    ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
+    ++ (pkgs.lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       skimpdf
     ]);
 }

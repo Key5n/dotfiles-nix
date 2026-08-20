@@ -15,8 +15,8 @@ in
       gemini-cli
       codex
     ]
-    ++ lib.optional stdenv.isDarwin terminal-notifier
-    ++ lib.optional (!stdenv.isDarwin) libnotify;
+    ++ lib.optional stdenv.hostPlatform.isDarwin terminal-notifier
+    ++ lib.optional (!stdenv.hostPlatform.isDarwin) libnotify;
 
   # Script used by Codex event notifications (installed to ~/.codex/notify.py).
   home.file.".codex/notify.py" = {
