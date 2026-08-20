@@ -9,7 +9,10 @@
     nixos-wsl.nixosModules.default
     ../../modules/base/secrets.nix
     ../../modules/base/zsh.nix
+    ../../modules/base/tailscale.nix
   ];
+
+  networking.hostName = "nixos-wsl"; # Define your hostname.
 
   wsl = {
     enable = true;
