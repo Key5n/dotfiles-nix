@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ ... }:
 let
   shellAliases = {
     ll = "ls -l";
@@ -16,18 +12,6 @@ in
     enable = true;
     syntaxHighlighting.enable = true;
     autocd = true;
-
-    plugins = [
-      {
-        name = "zsh-autocomplete";
-        src = pkgs.zsh-autocomplete;
-        file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
-      }
-    ];
-
-    initContent = lib.mkIf pkgs.stdenv.hostPlatform.isLinux ''
-      bindkey "''${key[Up]}" up-line-or-search
-    '';
   };
 
   # only works in bash/zsh, not nushell
