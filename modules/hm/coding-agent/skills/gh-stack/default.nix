@@ -1,9 +1,10 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    gh
-    gh-stack
-    git
-  ];
+  home.packages = [ pkgs.git ];
+
+  programs.gh = {
+    enable = true;
+    extensions = [ pkgs.gh-stack ];
+  };
 
   programs.git.settings.rerere.enabled = true;
 
