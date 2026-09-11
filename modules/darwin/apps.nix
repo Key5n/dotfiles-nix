@@ -32,6 +32,7 @@
       "slack"
       "figma"
       "microsoft-edge"
+      "chatgpt"
       # "affinity"
     ];
   };
