@@ -11,6 +11,7 @@
     ../../c
     ../../coding-agent
     ../../container
+    ../../direnv
     ../../git
     ../../haskell
     ../../julia
