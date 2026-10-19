@@ -12,4 +12,5 @@ return {
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.docker.lazydocker" },
   { import = "astrocommunity.markdown-and-latex.vimtex" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
 }
