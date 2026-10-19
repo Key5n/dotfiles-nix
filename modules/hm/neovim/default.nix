@@ -46,6 +46,7 @@ in
 
     #-- latex
     texlab
+    (pkgs.callPackage ./libtexprintf.nix { }) # utftex for render-markdown.nvim
 
     #-- javascript/typescript
     typescript-language-server
