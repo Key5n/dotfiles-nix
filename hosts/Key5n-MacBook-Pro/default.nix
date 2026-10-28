@@ -8,6 +8,13 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  fonts.packages = with pkgs; [
+    inter
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    nerd-fonts.fira-code
+  ];
+
   imports = [
     ../../modules/base/tailscale.nix
     ../../modules/darwin/host-users.nix

@@ -48,9 +48,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     # pkgs.google-chrome google-chrome is not available on aarch64-apple-darwin
-    pkgs.noto-fonts-cjk-sans
-    pkgs.noto-fonts-cjk-serif
-    pkgs.nerd-fonts.fira-code
     pkgs.fastfetch
   ];
 
