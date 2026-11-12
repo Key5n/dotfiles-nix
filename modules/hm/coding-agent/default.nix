@@ -14,6 +14,7 @@ in
       claude-code
       gemini-cli
       codex
+      bubblewrap
     ]
     ++ lib.optional stdenv.hostPlatform.isDarwin terminal-notifier
     ++ lib.optional (!stdenv.hostPlatform.isDarwin) libnotify;
