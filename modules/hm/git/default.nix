@@ -48,6 +48,9 @@ in
         push = {
           autoSetupRemote = true;
         };
+        rebase = {
+          updateRefs = true;
+        };
         init = {
           defaultBranch = "main";
         };
